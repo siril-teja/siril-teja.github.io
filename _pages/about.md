@@ -6,11 +6,11 @@ subtitle: PhD candidate at <a href='https://www.mcgill.ca/mbr/'>MBR Lab</a>, McG
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic1.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
      <p>siril.dukkipati@mail.mcgill.ca</p>
-    <p>sirilteja.dukkipati@gmail.com</p>
+     <p>sirilteja.dukkipati@gmail.com</p>
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
