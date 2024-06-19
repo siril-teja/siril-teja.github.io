@@ -4,7 +4,7 @@ permalink: /teaching/
 title: teaching
 description: Courses I have TAed in the past / TAing currently
 nav: true
-nav_order: 6
+nav_order: 5
 years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
 ---
 
