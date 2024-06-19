@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2022-02-07 07:59:00-0400
+date: 2022-05-01 07:59:00-0400
 inline: true
 ---
 
-Abstract submitted to [NASS 37th Annual Meeting](https://www.spine.org/am) 
+Selected for Another podium talk.! This time at the <a href="https://fasciaresearchsociety.org/">Fascia Research Congress 2022</a> - "Viscoelastic properties of 3D printed thoracolumbar fascia".
