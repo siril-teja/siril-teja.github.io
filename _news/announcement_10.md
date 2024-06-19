@@ -10,4 +10,4 @@ Another podium presentation on "Viscoelastic properties of 3D printed thoracolum
 <br>
 <img src="assets/img/frc_presentation.jpeg" 
      alt="FRC Presentation"
-	 width="350" />
+	width="350" />
