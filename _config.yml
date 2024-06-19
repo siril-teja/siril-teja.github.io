@@ -225,6 +225,12 @@ kramdown:
 
 # Includes & excludes
 include: ["_pages"]
+  - _pages/about.md
+  - _pages/404.md
+  - _pages/publications.md
+  - _pages/cv.md
+  - _pages/teaching.md
+  - _pages/cv-pdf.md
 exclude:
   - bin/
   - CONTRIBUTING.md
@@ -243,6 +249,7 @@ exclude:
   - _pages/about_einstein.md
   - purgecss.config.js
   - README.md
+  - README1.md
   - readme_preview/
   - vendor
 keep_files:
