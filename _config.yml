@@ -199,7 +199,7 @@ collections:
 announcements:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 3 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: false
@@ -230,6 +230,7 @@ include:
   - _pages/publications.md
   - _pages/cv.md
   - _pages/teaching.md
+  - _pages/news.md
 exclude:
   - bin/
   - CONTRIBUTING.md
