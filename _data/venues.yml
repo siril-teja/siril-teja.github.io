@@ -7,3 +7,11 @@
 
 "Vision":
   color: "#009f36"
+
+"J. Bionic Eng.":
+  url: https://doi.org/10.1007/s42235-024-00512-8
+  color: "#f3dcdb"
+
+"Preprint":
+  url: https://dx.doi.org/10.2139/ssrn.4154354
+  color: "#3b6887"
