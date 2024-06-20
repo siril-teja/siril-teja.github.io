@@ -1,13 +1,3 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
-  color: "#00369f"
-
-"PhysRev":
-  url: https://journals.aps.org/
-
-"Vision":
-  color: "#009f36"
-
 "J. Bionic Eng.":
   url: https://doi.org/10.1007/s42235-024-00512-8
   color: "#f3dcdb"
@@ -15,3 +5,37 @@
 "Preprint":
   url: https://dx.doi.org/10.2139/ssrn.4154354
   color: "#3b6887"
+
+"ORS 2024":
+  url: https://www.ors.org/2024annualmeeting/
+
+"CSS 2024":
+  url: https://spinecanada.ca/event/css-2024-whistler-bc/
+
+"SB3C 2024":
+  url: https://sb3c.org/
+
+"IMAC-XLII 2024":
+  url: https://sem.org/imac
+
+"EUROSPINE 2024":
+  url: https://www.eurospine.org/events/annual-meeting/2024/
+
+"ISTA 2024":
+  url: https://www.istaonline.org/meetings/ista-2024-annual-congress-new/
+
+"Fascia. 2023":
+  url: https://www.mcgill.ca/anatomy/anatomical-sciences/fascia-2024
+
+"Spine Loa. & Def. 2023":
+  url: https://workshop.spine-biomechanics.com/2023/
+
+"GSC 2023":
+  url: https://gsc2023.org/
+
+"FRC 2022":
+  url: https://fasciaresearchsociety.org/2022.php
+
+"ESMC 2022":
+  url: https://www.esmc2022.org/
+
