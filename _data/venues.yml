@@ -1,6 +1,6 @@
 "J. Bionic Eng.":
   url: https://doi.org/10.1007/s42235-024-00512-8
-  color: "#f3dcdb"
+  color: "#d01414"
 
 "Preprint":
   url: https://dx.doi.org/10.2139/ssrn.4154354
@@ -8,15 +8,18 @@
 
 "ORS 2024":
   url: https://www.ors.org/2024annualmeeting/
+  color: "#2ab58f"
 
 "CSS 2024":
   url: https://spinecanada.ca/event/css-2024-whistler-bc/
 
 "SB3C 2024":
   url: https://sb3c.org/
+  color: "#00bfc4"
 
 "IMAC-XLII 2024":
   url: https://sem.org/imac
+  color: "#f2dcdb"
 
 "EUROSPINE 2024":
   url: https://www.eurospine.org/events/annual-meeting/2024/
@@ -26,6 +29,7 @@
 
 "Fascia. 2023":
   url: https://www.mcgill.ca/anatomy/anatomical-sciences/fascia-2024
+  color: "#c7c9dd"
 
 "Spine Loa. & Def. 2023":
   url: https://workshop.spine-biomechanics.com/2023/
