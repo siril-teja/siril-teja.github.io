@@ -26,20 +26,24 @@
 
 "ISTA 2024":
   url: https://www.istaonline.org/meetings/ista-2024-annual-congress-new/
+  color: "#dceaf7"
 
 "Fascia. 2023":
   url: https://www.mcgill.ca/anatomy/anatomical-sciences/fascia-2024
   color: "#c7c9dd"
 
-"Spine Loa. & Def. 2023":
+"Spine L. D. 2023":
   url: https://workshop.spine-biomechanics.com/2023/
 
 "GSC 2023":
   url: https://gsc2023.org/
+  color: "#5454a0"
 
 "FRC 2022":
   url: https://fasciaresearchsociety.org/2022.php
+  color: "#c9c0b3"
 
 "ESMC 2022":
   url: https://www.esmc2022.org/
+  color: "#918f92"
 
