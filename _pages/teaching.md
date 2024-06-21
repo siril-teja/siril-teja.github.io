@@ -16,7 +16,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <div class="row">
         <div class="col-sm-10">
           <h5 class="font-weight-bold d-inline">Biomechanics of Musculoskeletal Systems</h5>
-          <h6 class="d-inline ml-2" style="color: #d01414;">Course Instructor</h6>
+          <h6 class="d-inline ml-2" style="color: #d01414; font-weight: bold;">Course Instructor</h6>
         </div>
         <div class="col-sm-2 text-left text-sm-right">
           <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/mecheng/grad/courses" target="_blank">
@@ -38,7 +38,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <div class="row">
         <div class="col-sm-10">
           <h5 class="font-weight-bold d-inline">Medical Technology Innovation and Development</h5>
-          <h6 class="d-inline ml-2" style="color: #007bff;">Teaching Assistant</h6>
+          <h6 class="d-inline ml-2" style="color: #007bff; font-weight: bold;">Teaching Assistant</h6>
         </div>
         <div class="col-sm-2 text-left text-sm-right">
           <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2024-2025/courses/bien-500" target="_blank">
@@ -60,7 +60,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <div class="row">
         <div class="col-sm-10">
           <h5 class="font-weight-bold d-inline">Statistics and Measurement Lab</h5>
-          <h6 class="d-inline ml-2" style="color: #007bff;">Teaching Assistant</h6>
+          <h6 class="d-inline ml-2" style="color: #007bff; font-weight: bold;">Teaching Assistant</h6>
         </div>
         <div class="col-sm-2 text-left text-sm-right">
           <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2022-2023/courses/mech-262" target="_blank">
@@ -82,7 +82,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <div class="row">
         <div class="col-sm-10">
           <h5 class="font-weight-bold d-inline">Principles of Manufacturing</h5>
-          <h6 class="d-inline ml-2" style="color: #007bff;">Teaching Assistant</h6>
+          <h6 class="d-inline ml-2" style="color: #007bff; font-weight: bold;">Teaching Assistant</h6>
         </div>
         <div class="col-sm-2 text-left text-sm-right">
           <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2022-2023/courses/mech-360" target="_blank">
@@ -104,7 +104,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <div class="row">
         <div class="col-sm-10">
           <h5 class="font-weight-bold d-inline">Design Graphics for Mechanical Engineering</h5>
-          <h6 class="d-inline ml-2" style="color: #007bff;">Teaching Assistant</h6>
+          <h6 class="d-inline ml-2" style="color: #007bff; font-weight: bold;">Teaching Assistant</h6>
         </div>
         <div class="col-sm-2 text-left text-sm-right">
           <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2021-2022/courses/mech-290" target="_blank">
