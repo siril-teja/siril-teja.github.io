@@ -1,16 +1,12 @@
 ---
 layout: page
-title: submenus
+title: misc
 nav: true
 nav_order: 8
 dropdown: true
 children:
-  - title: publications
-    permalink: /publications/
-  - title: divider
-  - title: projects
-    permalink: /projects/
-  - title: divider
-  - title: blog
-    permalink: /blog/
+    - title: Picxel - HTML Art
+      permalink: https://picxel.siril.me/
+    - title: GAMES - McGill U
+      permalink: https://games.mcgill.ca/
 ---

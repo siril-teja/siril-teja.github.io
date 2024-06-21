@@ -231,6 +231,7 @@ include:
   - _pages/cv.md
   - _pages/teaching.md
   - _pages/news.md
+  - _pages/dropdown.md
 exclude:
   - bin/
   - CONTRIBUTING.md
