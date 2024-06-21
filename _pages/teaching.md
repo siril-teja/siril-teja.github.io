@@ -2,7 +2,7 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Courses I have TAed in the past / TAing currently
+description: Courses I have taught and served as a teaching assistant in the past.
 nav: true
 nav_order: 5
 years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
@@ -19,6 +19,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
     <div class="row">
       <div class="col-sm-10">
         <h5 class="font-weight-bold">Principles of Manufacturing</h5>
+        <h6 class="font-italic">Teaching Assistant</h6>
       </div>
       <div class="col-sm-2 text-left text-sm-right">
         <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2022-2023/courses/mech-360" target="_blank">
