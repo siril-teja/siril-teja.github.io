@@ -12,6 +12,29 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
 
 <div class="content">
 
+<div class="card mt-3">
+  <div class="p-3">
+    <div class="row">
+      <div class="col-sm-10">
+        <h5 class="font-weight-bold d-inline">Biomechanics of Musculoskeletal Systems</h5>
+        <h6 class="d-inline ml-2" style="color: #007bff;">Course Instructor</h6>
+      </div>
+      <div class="col-sm-2 text-left text-sm-right">
+        <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/mecheng/grad/courses" target="_blank">
+            MECH 561
+        </a>
+      </div>
+    </div>
+    <h6 class="font-italic mt-2 mt-sm-0">Winter 2024</h6>
+    <ul class="card-text font-weight-light list-group list-group-flush">
+			<p>
+			I finally got a chance to lead my own course!! This  course  focuses  on  the musculoskeletal  system  its  general  characteristics  and classification of tissues and joints. Biomechanics and clinical problems in orthopedics will  be  detailed.  Modelling  and  force  analysis  of  musculoskeletal  systems  will  be explored.  Passive  and  active  kinematics  as  well  as  load-deformation  properties  of passive connective tissue, and stimulated muscle response will be demonstrated by way of experimental approaches and case studies 
+			</p>
+    </ul>
+  </div>
+</div>
+
+
 
 <div class="card mt-3">
   <div class="p-3">
@@ -21,7 +44,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
         <h6 class="font-italic d-inline ml-2">Teaching Assistant</h6>
       </div>
       <div class="col-sm-2 text-left text-sm-right">
-        <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2022-2023/courses/mech-262" target="_blank">
+        <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2024-2025/courses/bien-500" target="_blank">
             BIEN 500
         </a>
       </div>
