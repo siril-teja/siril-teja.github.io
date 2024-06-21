@@ -16,7 +16,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <div class="row">
         <div class="col-sm-10">
           <h5 class="font-weight-bold d-inline">Biomechanics of Musculoskeletal Systems</h5>
-          <h6 class="d-inline ml-2" style="color: #007bff;">Course Instructor</h6>
+          <h6 class="d-inline ml-2" style="color: #d01414;">Course Instructor</h6>
         </div>
         <div class="col-sm-2 text-left text-sm-right">
           <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/mecheng/grad/courses" target="_blank">
@@ -68,7 +68,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
           </a>
         </div>
       </div>
-      <h6 class="font-italic mt-2 mt-sm-0">Fall 2023, Winter 2023, Fall 2022, Winter 2022</h6>
+      <h6 class="font-italic mt-2 mt-sm-0">Winter 2024, Fall 2023, Winter 2023, Fall 2022, Winter 2022</h6>
       <ul class="card-text font-weight-light list-group list-group-flush">
         <p>
           MECH 262 is primarily designed to understand experimental results in Mechanical Engineering with the help of statistics and is taught by <a href='https://chrisywong.github.io/'>Dr. Chris Yee Wong</a> and in the past by <a href='https://www.linkedin.com/in/osaid-matar-ph-d-47b79a46/'>Prof. Osaid Matar</a> and <a href='https://www.mcgill.ca/mecheng/people/staff/jovan-nedic'>Prof. Jovan Nedic</a>. It includes Introduction to probability: conditional probability, binomial and Poisson distributions, random variables, laws of large numbers. Statistical analysis associated with measurements; regression and correlation. Basic experimental laboratory techniques, including the measurement of strain, pressure, force, position, and temperature.
@@ -104,7 +104,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <div class="row">
         <div class="col-sm-10">
           <h5 class="font-weight-bold d-inline">Design Graphics for Mechanical Engineering</h5>
-          <h6 class="d-inline ml-2" style="color: #007bff;">Course Instructor</h6>
+          <h6 class="d-inline ml-2" style="color: #007bff;">Teaching Assistant</h6>
         </div>
         <div class="col-sm-2 text-left text-sm-right">
           <a class="badge font-weight-bold light-blue darken-1 text-uppercase align-middle" href="https://www.mcgill.ca/study/2021-2022/courses/mech-290" target="_blank">
