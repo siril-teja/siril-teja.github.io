@@ -27,7 +27,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <h6 class="font-italic mt-2 mt-sm-0">Winter 2024</h6>
       <ul class="card-text font-weight-light list-group list-group-flush">
         <p>
-          I finally got a chance to lead my own course!! This course focuses on the musculoskeletal system, its general characteristics, and classification of tissues and joints. Biomechanics and clinical problems in orthopedics will be detailed. Modelling and force analysis of musculoskeletal systems will be explored. Passive and active kinematics as well as load-deformation properties of passive connective tissue, and stimulated muscle response will be demonstrated by way of experimental approaches and case studies.
+          I finally got a chance to lead my own course!! This course focuses on the musculoskeletal system, its general characteristics, and classification of tissues and joints. Biomechanics and clinical problems in orthopedics are detailed. Modelling and force analysis of musculoskeletal systems are explored. Passive and active kinematics as well as load-deformation properties of passive connective tissue, and stimulated muscle response are demonstrated by way of experimental approaches and case studies.
         </p>
       </ul>
     </div>
@@ -115,7 +115,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
       <h6 class="font-italic mt-2 mt-sm-0">Fall 2021, Winter 2021, Fall 2020</h6>
       <ul class="card-text font-weight-light list-group list-group-flush">
         <p>
-          MECH 290 is designed for students to understand the engineering design process, techniques like DFM, DFA, Additive manufacturing, etc. It is taught by <a href='https://www.mcgill.ca/mecheng/yaoyao-zhao'>Prof. Yaoyao Zhao</a>, <a href='https://www.mcgill.ca/mecheng/damiano-pasini'>Prof. Damiano Pasini</a>, and <a href='https://www.mcgill.ca/mecheng/people/staff/mark-driscoll'>Prof. Mark Driscoll</a>. The course covers the design process, including free-hand sketching, geometry construction to manufacturing drawings, the technology and standards of engineering graphic communication, and designing with CAD software. The role of visualization in the production of mechanical engineering designs.
+          MECH 290 is designed for students to understand the engineering design process, techniques like DFM, DFA, Additive manufacturing, etc. It was taught by <a href='https://www.mcgill.ca/mecheng/yaoyao-zhao'>Prof. Yaoyao Zhao</a>, <a href='https://www.mcgill.ca/mecheng/damiano-pasini'>Prof. Damiano Pasini</a>, and <a href='https://www.mcgill.ca/mecheng/people/staff/mark-driscoll'>Prof. Mark Driscoll</a>. The course covers the design process, including free-hand sketching, geometry construction to manufacturing drawings, the technology and standards of engineering graphic communication, and designing with CAD software. The role of visualization in the production of mechanical engineering designs.
         </p>
       </ul>
     </div>
