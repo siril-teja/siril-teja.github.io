@@ -8,6 +8,8 @@
     - name: Languages
       value: English, German
 
+
+
 - title: Education
   type: time_table
   contents:
@@ -27,6 +29,8 @@
       description:
         - Description 1.
         - Description 2.
+
+
 
 - title: Experience
   type: time_table
@@ -61,12 +65,17 @@
       institution: University of Zurich, Zurich, Switzerland
       year: 1909 - 1911
 
+
+
+
 - title: Open Source Projects
   type: time_table
   contents:
     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
       year: 2015-now
       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+
+
 
 - title: Honors and Awards
   type: time_table
@@ -79,6 +88,8 @@
       items:
         - Max Planck Medal
 
+
+
 - title: Academic Interests
   type: nested_list
   contents:
@@ -90,6 +101,8 @@
       items:
         - Description 1.
         - Description 2.
+
+
 
 - title: Other Interests
   type: list
