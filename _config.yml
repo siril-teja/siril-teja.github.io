@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Siril Teja Dukkipati # the website title (if blank, full name will be used instead)
+title: Siril Dukkipati # the website title (if blank, full name will be used instead)
 first_name: Siril
 middle_name: Teja
 last_name: Dukkipati
@@ -71,7 +71,7 @@ og_image: # The site-wide (default for all links) Open Graph preview image
 
 acm_id: # your dl.acm.org/profile/id
 blogger_url: # your blogger URL
-bluesky_url: # your bluesky URL
+bluesky_url: https://bsky.app/profile/biomech.siril.me # your bluesky URL
 dblp_url: # your DBLP profile url
 discord_id: # your discord id (18-digit unique numerical identifier)
 facebook_id: # your facebook id
@@ -79,7 +79,7 @@ flickr_id: # your flickr id
 github_username: siril-teja # your GitHub user name
 gitlab_username: # your GitLab user name
 ieee_id: # your ieeexplore.ieee.org/author/id
-instagram_id: siril.td # your instagram id
+instagram_id: # your instagram id
 kaggle_id: # your kaggle id
 keybase_username: # your keybase user name
 lastfm_id: # your lastfm id
@@ -87,7 +87,7 @@ lattes_id: # your ID on Lattes (Brazilian Lattes CV)
 linkedin_username: siril-td # your LinkedIn user name
 mastodon_username: # your mastodon instance+username in the format instance.tld/@username
 medium_username: # your Medium username
-orcid_id: 0000-0001-6047-4513 # your ORCID ID
+orcid_id: # your ORCID ID
 osf_id: # your OSF ID
 pinterest_id: # your pinterest id
 publons_id: # your ID on Publons
