@@ -21,7 +21,7 @@ Welcome.! I am a PhD candidate at the [Musculoskeletal Biomechanics Research Lab
 
 My research interests include Robot design, Control, Experimental validation. My PhD work is focused on developing a validated robotic benchtop spinal model for use as a research tool in low back research. I also do some [web dev](/picxel) and delve in cybersecurity topics.
 
-I hold a Bachelor's Degree in Mechanical Engineering from [Manipal University](https://manipal.edu/mu.html), India and did my bachelor's thesis with the [R&MM Research Group](http://mech.vub.ac.be/multibody_mechanics.htm) at Vrije Universiteit Brussel, Belgium.
+I hold a Bachelor's Degree in Mechanical Engineering from [Manipal University](https://manipal.edu/mu.html), India and did my bachelor's thesis with the [R&MM Research Group](https://www.brubotics.eu/research/self-healing-research) at Vrije Universiteit Brussel, Belgium.
 
 I was also a part of [Mars Society South Asia](https://southasia.marssociety.org/) and worked on promoting space exploration and education in the 7 South Asian countries by organizing robotic competitions like [IRC](https://southasia.marssociety.org/indianroverchallenge/), [IRDC](https://southasia.marssociety.org/irdc/) etc.
 
