@@ -1,3 +1,15 @@
+"GSC 2025":
+  url: https://gsc2025.org/
+  color: "#5454a0"
+
+"SEM 2025":
+  url: https://sem.org/imac
+  color: "#f2dcdb"
+
+"ORS 2025":
+  url: https://www.ors.org/2025annualmeeting/
+  color: "#2ab58f"
+  
 "J. Bionic Eng.":
   url: https://doi.org/10.1007/s42235-024-00512-8
   color: "#d01414"
