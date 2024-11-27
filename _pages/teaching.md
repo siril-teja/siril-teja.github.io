@@ -31,7 +31,7 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
         </p>
         <!-- Adding the image here -->
         <p align="center">
-          <img src="assets/img/fall2024.jpg" alt="MECH 561 Fall 2024" width="400">
+          <img src="{{ site.baseurl }}/assets/img/fall2024.jpg" alt="MECH 561 Fall 2024" width="400">
         </p>
       </ul>
     </div>
