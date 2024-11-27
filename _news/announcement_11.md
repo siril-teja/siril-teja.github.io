@@ -5,7 +5,7 @@ inline: true
 ---
 
 
-Last day of class for my MECH 561 - Intro to MSK Biomechanics course. This has been such a rewarding experience for me and I've enjoyed this semester more so than the last. Looking forward to many more of these. 
+Last day of class for my MECH 561 - Intro to MSK Biomechanics course. This has been such a rewarding experience for me and I’ve enjoyed this semester more so than the last. Looking forward to many more of these. 
 
 
 
