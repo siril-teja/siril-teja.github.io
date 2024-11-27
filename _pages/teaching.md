@@ -29,6 +29,10 @@ years: [2023, 2024, 2025, 2022, 2021, 2020, 2019, 2018]
         <p>
           I finally got a chance to lead my own course!! This course focuses on the musculoskeletal system, its general characteristics, and classification of tissues and joints. Biomechanics and clinical problems in orthopedics are detailed. Modelling and force analysis of musculoskeletal systems are explored. Passive and active kinematics as well as load-deformation properties of passive connective tissue, and stimulated muscle response are demonstrated by way of experimental approaches and case studies.
         </p>
+        <!-- Adding the image here -->
+        <p align="center">
+          <img src="assets/img/fall2024.jpg" alt="MECH 561 Fall 2024" width="400">
+        </p>
       </ul>
     </div>
   </div>
