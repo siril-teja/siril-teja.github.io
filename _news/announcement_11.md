@@ -10,5 +10,5 @@ Last day of class for my MECH 561 - Intro to MSK Biomechanics course. This has b
 
 
 <p align="left">
-  <img src="assets/img/fall2024.jpg" width="350" title="MECH 561 Fall 2024">
+  <img src="/assets/img/fall2024.jpg" width="350" title="MECH 561 Fall 2024">
 </p>
