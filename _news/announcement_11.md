@@ -1,7 +1,7 @@
 ---
 layout: post
 date: "2024-11-27 08:00:00-0000"
-inline: true
+inline: false
 hide: false
 ---
 
