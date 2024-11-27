@@ -297,7 +297,16 @@ sass:
 
 jekyll-minifier:
   exclude: 
-    - "**/*"  # This will exclude all files from minification
+    - "robots.txt"
+    - "assets/js/search/*.js"
+  uglifier_args:
+    harmony: true  # Explicitly enable ES6 support
+    compress:
+      warnings: false
+  preserve_php: true
+  remove_inlined_duplicates: true
+  compress_css: true
+  compress_javascript: true
 
 
 # -----------------------------------------------------------------------------
