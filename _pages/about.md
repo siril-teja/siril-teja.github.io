@@ -32,7 +32,7 @@ In my free time, I enjoy doing [photography](https://www.instagram.com/siril.td/
 layout: about
 title: about
 permalink: /
-subtitle: PhD in Mechanical Engineering
+subtitle: PhD in Mechanical Engineering (Biomechanics)
 
 profile:
   align: right
