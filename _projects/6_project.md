@@ -1,80 +1,56 @@
 ---
 layout: page
-title: project 6
-description: a project with no image
-img:
-importance: 4
+title: Self-Healing Soft Robotics
+description: Design and prototyping of a self-healing soft robotic gripper — bachelor's thesis at the R&MM Research Group, Vrije Universiteit Brussel, Belgium (2020).
+img: assets/img/publication_preview/Bthesis2020.png
+importance: 1
 category: fun
+related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+  <div class="col-sm-10 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/Bthesis2020.png" title="Self-healing soft robotic gripper" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
-```
+<div class="caption">
+  Prototype of the self-healing soft robotic gripper developed during my bachelor's thesis at the R&MM Research Group (BruBotics), Vrije Universiteit Brussel, Belgium.
+</div>
 
-{% endraw %}
+## Overview
+
+This project was my **bachelor's thesis** (2019–2020), completed as a research exchange student at the [R&MM Research Group (BruBotics)](https://www.brubotics.eu/research/self-healing-research), **Vrije Universiteit Brussel (VUB)**, Brussels, Belgium.
+
+The thesis explored the intersection of **soft robotics** and **self-healing materials** — an emerging field where robots are designed not only to be compliant and safe in unstructured environments, but also to autonomously repair damage to their structure.
+
+**Thesis title:** *Self-Healing Soft Robotics: Design & Prototyping of a Self-Healing Soft Gripper*
+
+## Background
+
+Soft robots are fabricated from compliant, elastomeric materials and are inherently safer for human-robot interaction than rigid systems. However, their soft nature also makes them prone to punctures, tears, and fatigue damage — which is critical in deployment scenarios.
+
+**Self-healing polymers** — materials that can autonomously repair damage when exposed to heat, UV light, or chemical stimuli — offer a promising route to more durable soft robotic systems. The R&MM Group at VUB is a world-leading research group in this space, with work on intrinsically self-healing actuators and grippers (Terryn, Brancart, Lefeber, Van Assche, Vanderborght, 2017 — *Science Robotics*).
+
+## My Contributions
+
+- **Mechanical design** of a pneumatically-actuated soft gripper using Ecoflex/Dragonskin silicone
+- **Prototyping** via silicone molding and 3D-printed molds
+- **Integration** of a self-healing polymer layer into the gripper body
+- **Testing** of healing efficiency (recovery of mechanical properties post-damage) and grasping performance
+- Design of an **underactuated kinematic gripper mechanism** — building on my earlier undergraduate research on Chebyshev lambda mechanisms (ICAARS 2018)
+
+## Self-Healing Mechanism
+
+The self-healing capability was achieved through a **thermally reversible Diels-Alder polymer network** embedded within the gripper elastomer. When heated (typically ~80°C for ~30 minutes), the covalent crosslinks break and reform, allowing cracks and cuts to close and rebond — restoring a significant portion of the original mechanical properties.
+
+## Broader Context
+
+This project marked my first foray into **compliant mechanisms**, **soft matter**, and **biologically-inspired robotics** — themes that have informed my subsequent work in **spine biomechanics**, where understanding the mechanical behavior of soft biological tissues (ligaments, intervertebral discs, fascia) is central.
+
+## Related Publications
+
+{% cite Bthesis2020 ICAARS2018 %}
+
+## Publications
+
+{% bibliography --cited %}

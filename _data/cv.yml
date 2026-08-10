@@ -2,109 +2,116 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Siril Teja Dukkipati
+    - name: Position
+      value: Postdoctoral Researcher
+    - name: Affiliation
+      value: MDsim S.A., Luxembourg
     - name: Languages
-      value: English, German
+      value: English, Telugu, French (basic)
 
 
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: PhD, Mechanical Engineering (Biomechanics)
+      institution: McGill University, Montréal, Canada
+      year: 2020–2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Musculoskeletal Biomechanics Research (MBR) Lab, supervised by Prof. Mark Driscoll.
+        - Developed and validated a robotic benchtop spine model, 3D-printable analogue spine surrogates, and a high-fidelity MATLAB rigid-body spine model inclusive of intra-abdominal pressure.
+        - Recipient of the GREAT Travel Award (2022) and SURE Fellowship (2019).
+    - title: B.Eng., Mechanical Engineering
+      institution: Manipal Institute of Technology, Manipal, India
+      year: 2016–2020
       description:
-        - Description 1.
-        - Description 2.
+        - Bachelor's thesis completed at the R&MM Research Group, Vrije Universiteit Brussel (VUB), Belgium.
+        - Thesis title&#58; "Self-Healing Soft Robotics&#58; Design & Prototyping of a Self-Healing Soft Gripper."
+    - title: Exchange / Research Internship
+      institution: Vrije Universiteit Brussel (VUB), Brussels, Belgium
+      year: 2019–2020
+      description:
+        - Research stay at the Department of Mechanical Engineering (BruBotics / R&MM Group).
 
 
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Postdoctoral Researcher
+      institution: MDsim S.A., Esch-sur-Alzette, Luxembourg
+      year: 2025–now
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
+        - FNR (Fonds National de la Recherche, Luxembourg) funded postdoctoral position.
+        - Working on biomechanical model verification and validation of the SPINEsim platform — a patient-specific digital twin for surgical planning and spine care.
+        - Clinical validation in collaboration with Prof. Hans-Joachim Wilke at the Institute of Orthopaedic Research and Biomechanics, University of Ulm, Germany.
+    - title: Course Instructor
+      institution: McGill University, Montréal, Canada
+      year: 2024
+      description:
+        - title: MECH 561 — Biomechanics of Musculoskeletal Systems (Fall 2024, Winter 2024)
           contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+            - Sole instructor responsible for course design, delivery, and assessment.
+            - Topics&#58; musculoskeletal tissue biomechanics, force analysis, passive/active kinematics, clinical orthopedics.
+    - title: Teaching Assistant
+      institution: McGill University, Montréal, Canada
+      year: 2020–2024
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - BIEN 500 — Medical Technology Innovation and Development (Winter 2024)
+        - MECH 262 — Statistics and Measurement Lab (Fall 2024, Winter 2024, Fall 2023, Winter 2023, Fall 2022, Winter 2022)
+        - MECH 360 — Principles of Manufacturing (Fall 2022)
+        - MECH 290 — Design Graphics for Mechanical Engineering (Fall 2021, Winter 2021, Fall 2020)
+    - title: Research Intern (SURE Fellowship)
+      institution: McGill University, Montréal, Canada
+      year: 2019
       description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-
-
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+        - Summer Undergraduate Research in Engineering (SURE) fellowship.
+        - Implemented and validated the control system for a robotic spine benchtop model (MBR Lab).
+    - title: Volunteer / Organizer
+      institution: Mars Society South Asia
+      year: 2018–2020
+      description:
+        - Promoted space exploration and education across South Asia.
+        - Organized robotics competitions including the Indian Rover Challenge (IRC) and Indian Rover Design Challenge (IRDC).
 
 
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2022
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - GREAT Award — Graduate Research Enhancement and Travel Award, McGill University (for ESMC 2022, Galway, Ireland)
+    - year: 2019
       items:
-        - Max Planck Medal
+        - SURE Fellowship — Summer Undergraduate Research in Engineering, McGill University
 
 
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Computational & Experimental Biomechanics
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Musculoskeletal modeling (rigid body dynamics, finite element methods)
+        - Spine biomechanics&#58; vertebral motion, intradiscal pressure, muscle recruitment
+        - Model verification, validation, and uncertainty quantification
+    - title: Robotics & Control
       items:
-        - Description 1.
-        - Description 2.
+        - Robotic benchtop testing systems for biomechanical research
+        - Control system design and implementation for compliant mechanisms
+    - title: Medical Devices & Digital Health
+      items:
+        - Patient-specific surgical planning tools and digital twins
+        - 3D-printable analogue models as cost-effective surrogates for cadaveric testing
+        - Regulatory frameworks for Software as a Medical Device (SaMD)
 
 
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Photography:</u> Landscape and travel photography (<a href="https://www.instagram.com/siril.td/" target="_blank">@siril.td</a>)
+    - <u>Cycling:</u> Road cycling and long-distance biking trips (<a href="https://www.strava.com/athletes/82563036" target="_blank">Strava</a>)
+    - <u>Web Development:</u> Occasional side projects in web development and cybersecurity

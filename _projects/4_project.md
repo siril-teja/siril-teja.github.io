@@ -1,80 +1,80 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: Robotic Benchtop Spine Model
+description: A 6-DOF robotic platform for repeatable, programmable spine biomechanical testing — core doctoral project at McGill MBR Lab.
+img: assets/img/publication_preview/SURE2019.png
+importance: 4
+category: work
+related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+  <div class="col-sm-10 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/SURE2019.png" title="Robotic benchtop spine model" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
-```
+<div class="caption">
+  The robotic benchtop spine model at the Musculoskeletal Biomechanics Research (MBR) Lab, McGill University. The system applies programmable loading to physical spine specimens and analogue models.
+</div>
 
-{% endraw %}
+## Overview
+
+The **Robotic Benchtop Spine Model** is the central experimental infrastructure of my doctoral research at the [Musculoskeletal Biomechanics Research Lab (MBR)](https://www.mcgill.ca/mbr/people-1), McGill University, supervised by [Prof. Mark Driscoll](https://www.mcgill.ca/mecheng/people/staff/mark-driscoll).
+
+The platform is a **6-degree-of-freedom robotic testing system** designed to apply controlled, programmable mechanical loading to physical spine specimens — both cadaveric tissue and engineered analogue models. Unlike conventional load frames, the robotic architecture allows:
+
+- **Pure moment application** in flexion-extension, lateral bending, and axial rotation simultaneously
+- **Programmable loading protocols** reproducible across specimens and laboratories
+- **Integration with sensors** for force, torque, and motion capture feedback
+- **Testing of analogue models** as well as biological tissue
+
+## My Contributions
+
+I joined this project as a **SURE Fellowship** intern in **summer 2019**, where I:
+
+- Implemented the **control system** for the robotic spine testing platform
+- Validated the kinematic performance of the robot against expected physiological loading ranges
+- Developed initial benchmarking protocols for 3D-printed analogue models on the platform
+
+During my doctoral work (2020–2025), this robotic system became the primary experimental workhorse for validating all spine surrogates developed in the lab, including the [3D printed analogue spine models](/projects/3_project) and the [inter-laboratory standardization studies](/projects/5_project).
+
+<div class="row mt-3">
+  <div class="col-sm-6 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/1Manu2022.png" title="First spine model validation" class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div class="col-sm-6 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/ESMC2022.png" title="ESMC 2022 presentation" class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+<div class="caption">
+  Left: First 3D-printed analogue spine model validated on the robotic platform (SSRN preprint, 2022). Right: Presentation at the 11th European Solid Mechanics Conference (ESMC 2022, Galway, Ireland) — recipient of the McGill GREAT travel award.
+</div>
+
+## Testing Protocols
+
+The robotic spine model follows standardized **pure moment loading protocols** adapted from cadaveric testing literature (Wilke et al., 1998; Panjabi, 1988). Key parameters:
+
+- **Loading range:** ±7.5 Nm pure moment in all three bending planes
+- **Loading mode:** Displacement-controlled (rotation-driven) or force-controlled
+- **Measured outputs:** Applied moment, angular displacement, range of motion (ROM), rotational stiffness
+- **Repeatability:** Mechanical precision of the robot ensures sub-degree repeatability across trials
+
+## Why Robotic Testing?
+
+| Feature | Cadaveric Testing | Finite Element Models | Robotic Platform |
+|---|---|---|---|
+| Cost | High | Medium | Low (once built) |
+| Repeatability | Low (biological variability) | High | High |
+| Specimen availability | Limited | N/A | Unlimited (analogue models) |
+| Protocol flexibility | Moderate | High | High |
+| Regulatory acceptance | Gold standard | Supplementary | Emerging |
+
+The robotic approach, combined with validated analogue models, enables **standardized, repeatable, and ethically unconstrained** spine biomechanical research.
+
+## Related Publication
+
+{% cite SURE2019 1Manu2022 ESMC2022 %}
+
+## Publications
+
+{% bibliography --cited %}

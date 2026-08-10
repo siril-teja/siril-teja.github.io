@@ -1,200 +1,285 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
+    "name": "Siril Teja Dukkipati",
+    "label": "Postdoctoral Researcher in Spine Biomechanics",
     "image": "",
-    "email": "albert@einstein.de",
-    "phone": "(912) 123-4567",
-    "url": "https://alshedivat.github.io/al-folio/",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "email": "sirilteja.dukkipati@gmail.com",
+    "phone": "",
+    "url": "https://siril-teja.github.io",
+    "summary": "Postdoctoral Researcher at MDsim S.A. (Luxembourg), working on clinical validation of the SPINEsim digital twin platform, funded by the FNR (Fonds National de la Recherche, Luxembourg). PhD in Mechanical Engineering (Biomechanics) from McGill University. Research expertise in musculoskeletal modeling, robotic spine testing, 3D-printed spine surrogates, and medical device development.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
+      "city": "Esch-sur-Alzette",
+      "countryCode": "LU",
+      "region": "Luxembourg"
     },
     "profiles": [
       {
-        "network": "Twitter",
-        "username": "AlbertEinstein",
-        "url": "https://twitter.com/AlbertEinstein"
+        "network": "GitHub",
+        "username": "siril-teja",
+        "url": "https://github.com/siril-teja"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "siril-td",
+        "url": "https://linkedin.com/in/siril-td"
+      },
+      {
+        "network": "Google Scholar",
+        "username": "Siril Teja Dukkipati",
+        "url": "https://scholar.google.com/citations?user=IeGmZcAAAAAJ"
+      },
+      {
+        "network": "ResearchGate",
+        "username": "Siril-Dukkipati",
+        "url": "https://www.researchgate.net/profile/Siril-Dukkipati"
       }
     ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "name": "MDsim S.A.",
+      "position": "Postdoctoral Researcher",
+      "url": "https://mdsim.health",
+      "startDate": "2025-09-01",
+      "endDate": "",
+      "summary": "FNR (Fonds National de la Recherche, Luxembourg) funded postdoctoral research position focused on biomechanical model verification and clinical validation of SPINEsim — a patient-specific digital twin for spine surgical planning.",
+      "highlights": [
+        "Clinical validation of the SPINEsim biomechanical model in collaboration with Prof. Hans-Joachim Wilke, Institute of Orthopaedic Research and Biomechanics, University of Ulm, Germany",
+        "Biomechanical model verification and validation (V&V) for Software as a Medical Device (SaMD) regulatory requirements",
+        "FNR-funded research bridging computational biomechanics and clinical spine care"
+      ]
+    },
+    {
+      "name": "McGill University, Department of Mechanical Engineering",
+      "position": "Course Instructor — MECH 561: Biomechanics of Musculoskeletal Systems",
+      "url": "https://www.mcgill.ca/mecheng/grad/courses",
+      "startDate": "2024-01-01",
+      "endDate": "2024-12-31",
+      "summary": "Sole instructor for MECH 561 (Fall 2024, Winter 2024). Responsible for full course design, delivery, and assessment covering musculoskeletal tissue biomechanics, force analysis, passive/active kinematics, and clinical orthopedics.",
+      "highlights": [
+        "Full course design and delivery for graduate-level biomechanics course",
+        "Topics: musculoskeletal classification, clinical orthopedics, musculoskeletal force analysis, kinematics, experimental methods"
+      ]
+    },
+    {
+      "name": "McGill University, Department of Mechanical Engineering",
+      "position": "Teaching Assistant",
+      "url": "https://www.mcgill.ca/mecheng",
+      "startDate": "2020-09-01",
+      "endDate": "2024-12-31",
+      "summary": "Teaching assistant across four courses over five years.",
+      "highlights": [
+        "BIEN 500 — Medical Technology Innovation and Development (Winter 2024)",
+        "MECH 262 — Statistics and Measurement Lab (Fall 2024, Winter 2024, Fall 2023, Winter 2023, Fall 2022, Winter 2022)",
+        "MECH 360 — Principles of Manufacturing (Fall 2022)",
+        "MECH 290 — Design Graphics for Mechanical Engineering (Fall 2021, Winter 2021, Fall 2020)"
+      ]
+    },
+    {
+      "name": "McGill University, MBR Lab",
+      "position": "Research Intern (SURE Fellowship)",
+      "url": "https://www.mcgill.ca/mbr",
+      "startDate": "2019-05-01",
+      "endDate": "2019-08-31",
+      "summary": "Summer Undergraduate Research in Engineering (SURE) fellowship. Implemented and validated the control system for a robotic spine benchtop model.",
+      "highlights": [
+        "Implemented control system on a robotic benchtop spine model",
+        "Validated kinematic performance of the robotic model against expected physiological ranges"
+      ]
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "organization": "Mars Society South Asia",
+      "location": "India",
+      "position": "Organizer",
+      "url": "https://southasia.marssociety.org/",
+      "startDate": "2018-01-01",
+      "endDate": "2020-01-01",
+      "summary": "Promoted space exploration and STEM education across South Asia.",
+      "highlights": [
+        "Organized Indian Rover Challenge (IRC) — a national university-level Mars rover competition",
+        "Organized Indian Rover Design Challenge (IRDC)"
+      ]
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
+      "institution": "McGill University",
+      "location": "Montréal, Canada",
+      "url": "https://www.mcgill.ca",
+      "area": "Mechanical Engineering (Biomechanics)",
       "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
+      "startDate": "2020-09-01",
+      "endDate": "2025-08-01",
+      "score": "",
+      "courses": [
+        "Musculoskeletal Biomechanics Research Lab (MBR), supervised by Prof. Mark Driscoll"
+      ]
+    },
+    {
+      "institution": "Manipal Institute of Technology",
+      "location": "Manipal, India",
+      "url": "https://manipal.edu/mu.html",
+      "area": "Mechanical Engineering",
+      "studyType": "B.Eng.",
+      "startDate": "2016-07-01",
+      "endDate": "2020-06-01",
+      "score": "",
+      "courses": [
+        "Bachelor's thesis at R&MM Research Group, Vrije Universiteit Brussel, Belgium"
+      ]
     }
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "GREAT Award — Graduate Research Enhancement and Travel Award",
+      "date": "2022-07-01",
+      "awarder": "McGill University",
+      "summary": "Travel grant awarded for presentation at the 11th European Solid Mechanics Conference (ESMC 2022), Galway, Ireland."
+    },
+    {
+      "title": "SURE Fellowship — Summer Undergraduate Research in Engineering",
+      "date": "2019-05-01",
+      "awarder": "McGill University",
+      "summary": "Competitive undergraduate research fellowship at the Musculoskeletal Biomechanics Research Lab."
     }
   ],
-  "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
-    }
-  ],
+  "certificates": [],
   "publications": [
     {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
+      "name": "Evaluation of a Fast-Solving Rigid Body Spine Model Inclusive of Intra-Abdominal Pressure",
+      "publisher": "IEEE Transactions on Biomedical Engineering",
+      "releaseDate": "2025-10-01",
+      "url": "https://doi.org/10.1109/TBME.2025.3561692",
+      "summary": "High-fidelity, fast-solving (1.4 s) MATLAB rigid-body lumbar spine model with 15 DOF, incorporating intra-abdominal pressure. Validated against in vivo literature. Vol. 72, Issue 10, pp. 3108–3119."
     },
     {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
+      "name": "Design Improvements and Validation of a Novel Fully 3D Printed Analogue Lumbar Spine Motion Segment",
+      "publisher": "Journal of Bionic Engineering",
+      "releaseDate": "2024-05-01",
+      "url": "https://doi.org/10.1007/s42235-024-00512-8",
+      "summary": "Fully 3D-printable L1-S1 spine surrogate with ligaments, validated against cadaveric and FE data. Vol. 21, Issue 3, pp. 1388–1396."
     },
     {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "Development and Biomechanical Evaluation of a 3D Printed Analogue Lumbar Spine Motion Segment",
+      "publisher": "SSRN Electronic Journal (Preprint)",
+      "releaseDate": "2022-01-01",
+      "url": "https://www.ssrn.com/abstract=4154354",
+      "summary": "First reproducible 3D-printable L1-S1 lumbar spine model validated in flexion-extension, lateral bending, and axial rotation."
     }
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
+      "name": "Computational Modeling",
+      "level": "Expert",
+      "icon": "fa-solid fa-laptop-code",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "MATLAB (rigid body dynamics, optimization, Simulink)",
+        "Python (data analysis, NumPy, Pandas, Matplotlib)",
+        "Finite Element Analysis (ANSYS)",
+        "Musculoskeletal modeling"
+      ]
+    },
+    {
+      "name": "CAD & Fabrication",
+      "level": "Advanced",
+      "icon": "fa-solid fa-drafting-compass",
+      "keywords": [
+        "SolidWorks",
+        "FreeCAD",
+        "Fusion 360",
+        "3D Printing (FDM, resin)",
+        "CNC fundamentals"
+      ]
+    },
+    {
+      "name": "Experimental & Laboratory",
+      "level": "Advanced",
+      "icon": "fa-solid fa-flask",
+      "keywords": [
+        "Biomechanical testing (spine, soft tissue)",
+        "Robotic systems integration",
+        "Motion capture & force measurement",
+        "Statistical analysis & regression"
+      ]
+    },
+    {
+      "name": "Tools & Platforms",
+      "level": "Proficient",
+      "icon": "fa-solid fa-tools",
+      "keywords": [
+        "Git / GitHub",
+        "LaTeX",
+        "ROS (Robot Operating System)",
+        "Jekyll / web development"
       ]
     }
   ],
   "languages": [
     {
-      "language": "German",
+      "language": "English",
+      "fluency": "Fluent",
+      "icon": ""
+    },
+    {
+      "language": "Telugu",
       "fluency": "Native speaker",
       "icon": ""
     },
     {
-      "language": "English",
-      "fluency": "Fluent",
+      "language": "French",
+      "fluency": "Basic",
       "icon": ""
     }
   ],
   "interests": [
     {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
+      "name": "Musculoskeletal Biomechanics",
+      "icon": "fa-solid fa-bone",
       "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
+        "Spine biomechanics",
+        "Rigid body dynamics",
+        "Intra-abdominal pressure modeling",
+        "Intervertebral disc mechanics"
+      ]
+    },
+    {
+      "name": "Medical Devices & Digital Health",
+      "icon": "fa-solid fa-stethoscope",
+      "keywords": [
+        "Patient-specific digital twins",
+        "Software as a Medical Device (SaMD)",
+        "Surgical planning tools",
+        "Clinical validation"
       ]
     }
   ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    }
-  ],
+  "references": [],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
+      "name": "SPINEsim Clinical Validation",
+      "summary": "FNR-funded postdoctoral project validating the SPINEsim biomechanical digital twin platform at MDsim S.A., in collaboration with Prof. H.-J. Wilke at University of Ulm.",
+      "highlights": ["Clinical V&V", "Digital twin", "SaMD"],
+      "startDate": "2025-09-01",
+      "endDate": "",
+      "url": "https://mdsim.health"
+    },
+    {
+      "name": "High-Fidelity MATLAB Spine Model with IAP",
+      "summary": "Fast-solving 15 DOF rigid body lumbar spine model inclusive of intra-abdominal pressure. Published in IEEE TBME 2025.",
+      "highlights": ["MATLAB", "Rigid body dynamics", "Muscle recruitment", "IEEE TBME 2025"],
+      "startDate": "2022-01-01",
+      "endDate": "2025-10-01",
+      "url": "https://doi.org/10.1109/TBME.2025.3561692"
+    },
+    {
+      "name": "3D Printed Analogue Lumbar Spine",
+      "summary": "Fully 3D-printable L1-S1 spine surrogate with ligaments. Published in Journal of Bionic Engineering 2024.",
+      "highlights": ["3D printing", "Spine surrogate", "Biomechanical validation"],
+      "startDate": "2021-01-01",
+      "endDate": "2024-05-01",
+      "url": "https://doi.org/10.1007/s42235-024-00512-8"
     }
   ]
 }

@@ -1,80 +1,89 @@
 ---
 layout: page
-title: project 5
-description: a project with a background image
-img: assets/img/1.jpg
-importance: 3
-category: fun
+title: Inter-Laboratory Spine Surrogate Standardization
+description: A multi-institution collaborative study evaluating the reproducibility and variability of composite lumbar spine surrogates across laboratories worldwide.
+img: assets/img/publication_preview/ORS2024a.png
+importance: 5
+category: work
+related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
-
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
-
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
-
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
-
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+  <div class="col-sm-10 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/ORS2024a.png" title="Inter-laboratory spine surrogate study" class="img-fluid rounded z-depth-1" %}
   </div>
 </div>
-```
+<div class="caption">
+  Multi-laboratory biomechanical testing of composite lumbar spine surrogates (Sawbones). Each laboratory used their own standard equipment and protocols — revealing significant inter-lab variability in measured outcomes.
+</div>
 
-{% endraw %}
+## Overview
+
+Before engineered spine surrogates can replace cadaveric specimens in regulatory testing, it is essential to understand **how consistently different laboratories measure the same model**. This collaborative project brought together **8+ spine biomechanics laboratories** across North America and Australia to answer that question.
+
+The study evaluated **temporal variation** (how results change over time within one lab) and **inter-laboratory variation** (how results differ between labs) for standardized **composite lumbar spine surrogates (Sawbones® models)** under identical loading protocols.
+
+## Institutions Involved
+
+- McGill University, Montréal, Canada (MBR Lab — Mark Driscoll)
+- Cleveland Clinic, Cleveland, Ohio, USA (Robb W. Colbrunn)
+- Wake Forest School of Medicine, Winston-Salem, North Carolina, USA
+- UNSW Sydney, Sydney, Australia (Philip J. Brown)
+- Cedars-Sinai Medical Center, Los Angeles, California, USA (Sophia Sangiorgio, Edward Ebramzadeh)
+- Hospital for Special Surgery, New York, USA (Brian Kelly)
+- University of New South Wales, Orthopaedic Research Institute
+
+## Key Findings
+
+- **Inter-laboratory variability** was significantly **larger than temporal variability** within a single lab
+- Differences in testing equipment, fixture designs, and operator practices — even when following "standard" protocols — led to measurable differences in ROM and stiffness outcomes
+- The study identified specific sources of variability and proposed **harmonized testing practices** to improve reproducibility
+
+<div class="row mt-3">
+  <div class="col-sm-6 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/SB3C2024a.png" title="SB3C 2024 temporal variability" class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div class="col-sm-6 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/SB3C2024b.png" title="SB3C 2024 biomechanical variability" class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+<div class="caption">
+  Summer Biomechanics, Bioengineering, and Biotransport Conference (SB3C) 2024 presentations on temporal and biomechanical variability in composite spine surrogates. Lake Geneva, Wisconsin.
+</div>
+
+## My Role
+
+As part of the McGill team, I contributed to:
+
+- **Designing and executing** the testing protocol for composite spine surrogates on the McGill robotic spine platform
+- **Data collection and analysis** — ROM, stiffness, and repeatability metrics
+- **Co-authoring** multiple conference papers presented at ORS, SB3C, and ISTA 2024–2025
+- **Presenting** findings at the ORS Annual Meeting 2025 (Phoenix, AZ)
+
+## Why It Matters
+
+As spine surrogates gain traction as alternatives to cadaveric specimens for implant development and regulatory submissions (FDA/ISO), establishing **inter-laboratory reproducibility** is a regulatory necessity. This work lays the groundwork for:
+
+- Standardized testing protocols accepted by regulatory bodies (FDA, ISO)
+- Improved confidence in composite surrogate-based preclinical data
+- Benchmarking future surrogate models against established variability baselines
+
+<div class="row mt-3">
+  <div class="col-sm-6 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/ORS2025a.jpg" title="ORS 2025 inter-lab full field testing" class="img-fluid rounded z-depth-1" %}
+  </div>
+  <div class="col-sm-6 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/publication_preview/ORS2024b.png" title="ORS 2024 variability study" class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+<div class="caption">
+  Left: ORS 2025 (Phoenix) — full-field biomechanical testing inter-lab comparative study. Right: ORS 2024 (Long Beach) — composite surrogate variability analysis.
+</div>
+
+## Related Publications
+
+{% cite ORS2025a ORS2024a ORS2024b SB3C2024a SB3C2024b Loss2024 ISTA2024b %}
+
+## Publications
+
+{% bibliography --cited %}
