@@ -25,7 +25,7 @@ This position is funded by the **[FNR (Fonds National de la Recherche)](https://
 
 ## Collaborators
 
-- **[Prof. Hans-Joachim Wilke](https://www.uni-ulm.de/en/einrichtungen/iob/team/)**, Institute of Orthopaedic Research and Biomechanics, University of Ulm, Germany — clinical validation partner with over 30 years of expertise in spine biomechanics, in vitro testing, and intradiscal pressure measurement.
+- **[Prof. Hans-Joachim Wilke](https://www.uni-ulm.de/med/institut-fuer-unfallchirurgische-forschung-und-biomechanik/forschungsfelder/biomechanik-der-wirbelsaeule/)**, Institute of Orthopaedic Research and Biomechanics, University of Ulm, Germany — clinical validation partner with over 30 years of expertise in spine biomechanics, in vitro testing, and intradiscal pressure measurement.
 - [MDsim S.A.](https://mdsim.health) — founded by Roger Assaker (CEO, computational mechanics background), Richard Assaker (CMO, Professor of Neurosurgery), and Dany Assaker.
 
 ## The SPINEsim Platform
