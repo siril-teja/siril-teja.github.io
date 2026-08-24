@@ -1,0 +1,91 @@
+{
+  "$ref": "#/definitions/publications",
+  "definitions": {
+    "publications": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "authors": {
+          "type": "string"
+        },
+        "year": {
+          "type": "number"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "journal",
+            "book-chapter",
+            "conference-talk",
+            "conference-poster",
+            "manuscript",
+            "preprint",
+            "thesis-phd",
+            "thesis-bachelor"
+          ]
+        },
+        "venue": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "doi": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "string"
+        },
+        "issue": {
+          "type": "string"
+        },
+        "pages": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "abstract": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "data": {
+          "type": "string"
+        },
+        "figure": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "selected": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "authors",
+        "year",
+        "type"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
