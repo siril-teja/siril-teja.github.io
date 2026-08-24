@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# AI usage preferences: discoverability is welcome
+Content-Signal: search=yes, ai-train=yes, ai-input=yes
+
 Sitemap: https://siril.me/sitemap-index.xml
