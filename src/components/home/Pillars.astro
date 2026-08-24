@@ -1,0 +1,114 @@
+---
+import SectionHeader from '../SectionHeader.astro';
+
+const pillars = [
+  {
+    name: 'Computational Biomechanics',
+    text: 'Finite element modelling, rigid-body dynamics, rigid-flexible body dynamics, musculoskeletal modelling, and computational simulation of the spine and torso.',
+  },
+  {
+    name: 'Experimental Biomechanics',
+    text: 'Physical surrogate models, mechanical testing, robotic benchtop systems, biomechanical characterization, and standardized testing protocols.',
+  },
+  {
+    name: 'Verification & Validation',
+    text: 'Model verification, validation, and credibility — connecting experimental and clinical evidence to regulatory-oriented computer modelling and simulation.',
+  },
+];
+---
+
+<section class="section" id="what-i-work-on">
+  <div class="container">
+    <SectionHeader
+      num="02"
+      label="What I Work On"
+      heading="Research focus."
+    />
+
+    <div class="pillars" role="list">
+      {
+        pillars.map((p, i) => (
+          <div class="pillar" role="listitem" data-reveal style={`--reveal-delay:${i * 0.08}s`}>
+            <span class="meta pillar-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="pillar-name">{p.name}</h3>
+            <p class="pillar-text">{p.text}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="pillar-connection" data-reveal>
+      <svg class="conn-arrows" viewBox="0 0 640 24" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+        <line x1="40" y1="12" x2="600" y2="12" stroke="#333333" stroke-width="1"></line>
+        <path d="M 48 7 L 36 12 L 48 17 M 592 7 L 604 12 L 592 17" fill="none" stroke="#c66a3d" stroke-width="1.5"></path>
+        <circle cx="160" cy="12" r="3" fill="#c66a3d"></circle>
+        <circle cx="320" cy="12" r="3" fill="#c66a3d"></circle>
+        <circle cx="480" cy="12" r="3" fill="#c66a3d"></circle>
+      </svg>
+      <p class="connection-note meta">Computational ↔ Experimental ↔ V&amp;V</p>
+      <p class="closing display">From models to evidence.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .pillar {
+    display: grid;
+    gap: 0.9rem;
+    align-content: start;
+    border-top: 1px solid var(--border-strong);
+    padding-top: 1.5rem;
+  }
+  .pillar-num {
+    color: var(--accent);
+  }
+  .pillar-name {
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    font-weight: 450;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .pillar-text {
+    color: var(--text-2);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    max-width: 38ch;
+  }
+
+  .pillar-connection {
+    margin-top: clamp(3rem, 6vw, 5rem);
+    border-top: 1px solid var(--border);
+    padding-top: clamp(2.5rem, 4vw, 3.5rem);
+    display: grid;
+    justify-items: center;
+    gap: 1.25rem;
+  }
+  .conn-arrows {
+    width: min(100%, 40rem);
+  }
+  .connection-note {
+    color: var(--text-2);
+  }
+  .closing {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-style: italic;
+    color: var(--text);
+    margin-top: 0.75rem;
+  }
+
+  @media (max-width: 60rem) {
+    .pillars {
+      grid-template-columns: 1fr;
+    }
+    .pillar-text {
+      max-width: 56ch;
+    }
+  }
+</style>

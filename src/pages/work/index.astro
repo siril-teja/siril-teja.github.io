@@ -1,0 +1,360 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { researchImage } from '../../lib/images';
+
+const projects = await getCollection('projects');
+const publications = await getCollection('publications');
+const pubById = new Map(publications.map((p) => [p.id, p]));
+
+const CATEGORIES = [
+  {
+    id: 'building-physical-models',
+    num: '3.1',
+    name: 'Building Physical Models',
+    question: 'How can we build physical systems that reproduce relevant biomechanical behaviour?',
+  },
+  {
+    id: 'building-computational-models',
+    num: '3.2',
+    name: 'Building Computational Models',
+    question: 'How can we represent the mechanics of the human body computationally?',
+  },
+  {
+    id: 'testing-validating-models',
+    num: '3.3',
+    name: 'Testing & Validating Models',
+    question: 'How do we determine whether these models actually represent reality?',
+  },
+  {
+    id: 'bringing-models-together',
+    num: '3.4',
+    name: 'Bringing Models Together',
+    question: 'How can physical and computational models inform one another?',
+  },
+] as const;
+
+const TYPE_ABBR: Record<string, string> = {
+  journal: 'Journal',
+  'book-chapter': 'Chapter',
+  'conference-talk': 'Talk',
+  'conference-poster': 'Poster',
+  manuscript: 'Manuscript',
+  preprint: 'Preprint',
+  'thesis-phd': 'Thesis',
+  'thesis-bachelor': 'Thesis',
+};
+
+const resolvedCategories = await Promise.all(
+  CATEGORIES.map(async (cat) => ({
+    ...cat,
+    projects: await Promise.all(
+      projects
+        .filter((p) => p.data.category === cat.id)
+        .map(async (project) => {
+          const d = project.data;
+          const heroSrc = await researchImage(d.hero ? `/src/assets/research/${d.hero}` : undefined);
+          const stripImages = (
+            await Promise.all(
+              d.images.slice(1).map((img) => researchImage(`/src/assets/research/${img}`))
+            )
+          ).filter((s) => s !== undefined);
+          return {
+            id: project.id,
+            d,
+            heroSrc,
+            stripImages,
+            related: d.related_publications
+              .map((id) => pubById.get(id))
+              .filter((p) => p !== undefined),
+          };
+        })
+    ),
+  }))
+);
+
+// the first project hero sits above the fold and should load eagerly
+const firstProjectId = resolvedCategories.find((c) => c.projects.length > 0)?.projects[0]?.id;
+---
+
+<BaseLayout
+  title="Siril - Selected Work"
+  description="The expanded research portfolio of Siril Dukkipati: physical spine models, computational models, validation studies, and their integration toward model credibility."
+>
+  <section class="page-head">
+    <div class="container">
+      <SectionHeader
+        num="03"
+        label="Selected Work"
+        heading="Research portfolio."
+        lede="Here are the things I've built, and together they tell the story of how my research has evolved."
+      />
+    </div>
+  </section>
+
+  <div class="container">
+    {
+      resolvedCategories.map((cat) => {
+        if (cat.projects.length === 0) return null;
+        return (
+          <section class="category" id={cat.id} aria-label={cat.name}>
+            <header class="category-head" data-reveal>
+              <p class="kicker">
+                <span class="num">{cat.num}</span>
+                <span>/</span>
+                <span>{cat.name}</span>
+              </p>
+              <h2 class="h2 category-question">{cat.question}</h2>
+            </header>
+
+            {cat.projects.map((project) => {
+              const { d, heroSrc, stripImages, related } = project;
+              return (
+                <article class="work-entry" id={project.id}>
+                  {heroSrc && (
+                    <figure class="work-hero" data-reveal>
+                      <Image
+                        src={heroSrc}
+                        alt={`Research figure: ${d.title}`}
+                        widths={[840, 1200, 1600, 2000]}
+                        sizes="(max-width: 60rem) 100vw, 49rem"
+                        loading={project.id === firstProjectId ? 'eager' : 'lazy'}
+                      />
+                    </figure>
+                  )}
+
+                  <div class="work-grid">
+                    <div class="work-info">
+                      <h3 class="h3">{d.title}</h3>
+                      <div class="prose work-desc">
+                        <p>{d.description}</p>
+                      </div>
+                      {d.external_links.length > 0 && (
+                        <ul class="ext-links" role="list">
+                          {d.external_links.map((l) => (
+                            <li>
+                              <a href={l.url} target="_blank" rel="noopener noreferrer" class="arrow-link">
+                                {l.label}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    <aside class="work-side">
+                      {d.themes.length > 0 && (
+                        <div class="side-block">
+                          <p class="meta side-kicker">Themes</p>
+                          <ul class="theme-list" role="list">
+                            {d.themes.map((t) => (
+                              <li>{t}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {related.length > 0 && (
+                        <div class="side-block">
+                          <p class="meta side-kicker">Related publications</p>
+                          <ul class="rel-list" role="list">
+                            {related.map((p) => {
+                              const url = p.data.doi
+                                ? `https://doi.org/${p.data.doi}`
+                                : p.data.url;
+                              return (
+                                <li>
+                                  <span class="meta rel-year">{p.data.year}</span>
+                                  <span class="rel-item">
+                                    {url ? (
+                                      <a href={url} target="_blank" rel="noopener noreferrer" class="text-link">
+                                        {p.data.title}
+                                      </a>
+                                    ) : (
+                                      p.data.title
+                                    )}
+                                  </span>
+                                  <span class="meta rel-type">{TYPE_ABBR[p.data.type]}</span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )}
+
+                      {d.images.length > 1 && (
+                        <div class="side-block">
+                          <p class="meta side-kicker">Additional figures</p>
+                          <div class="img-strip">
+                            {stripImages.map((src) => (
+                              <Image
+                                src={src}
+                                alt={`Research figure from: ${d.title}`}
+                                widths={[480, 800, 1200]}
+                                sizes="240px"
+                                loading="lazy"
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </aside>
+                  </div>
+                </article>
+              );
+            })}
+          </section>
+        );
+      })
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head {
+    padding-block: clamp(3.5rem, 8vh, 6rem) 0;
+  }
+
+  .category {
+    padding-block: clamp(3rem, 6vw, 5rem);
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 5rem;
+  }
+  .category:first-of-type {
+    border-top: none;
+  }
+
+  .category-head {
+    margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .category-question {
+    margin-top: 1rem;
+    max-width: 30ch;
+  }
+
+  .work-entry {
+    scroll-margin-top: 5rem;
+  }
+  .work-entry + .work-entry {
+    margin-top: clamp(4rem, 8vw, 7rem);
+  }
+
+  .work-hero {
+    margin: 0 auto 2.5rem;
+    width: 70%;
+  }
+  .work-hero img {
+    width: 100%;
+    height: auto;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+  }
+
+  .work-info {
+    display: grid;
+    gap: 1.25rem;
+    justify-items: start;
+  }
+  .work-desc {
+    color: var(--text-2);
+    max-width: 62ch;
+  }
+
+  .ext-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .work-side {
+    display: grid;
+    gap: 2rem;
+    border-left: 1px solid var(--border);
+    padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .side-block {
+    display: grid;
+    gap: 0.75rem;
+  }
+  .side-kicker {
+    color: var(--accent);
+  }
+
+  .theme-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .theme-list li {
+    font-family: var(--font-mono);
+    font-size: var(--size-meta);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 99px;
+    padding: 0.35em 0.9em;
+  }
+
+  .rel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.8rem;
+  }
+  .rel-list li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+  .rel-year {
+    color: var(--accent);
+  }
+  .rel-item {
+    font-size: var(--size-small);
+    color: var(--text-2);
+    line-height: 1.45;
+  }
+  .rel-type {
+    color: var(--muted);
+  }
+
+  .img-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .img-strip img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid var(--border);
+  }
+
+  @media (max-width: 60rem) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+    .work-side {
+      border-left: none;
+      padding-left: 0;
+    }
+    .work-hero {
+      width: 100%;
+    }
+  }
+</style>

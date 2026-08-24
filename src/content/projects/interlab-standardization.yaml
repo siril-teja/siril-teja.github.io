@@ -1,0 +1,26 @@
+title: Inter-Laboratory Standardization of Spine Testing
+category: testing-validating-models
+summary: >
+  Multi-institution studies quantifying how reproducibly different laboratories test identical spine surrogates — foundational evidence for standardized, regulatorily credible spine biomechanics.
+description: >
+  Before engineered surrogates can complement cadaveric testing, the field needs to know how consistently laboratories measure the same object. Within the International Spine Biomechanics Consortium — a working group of seven spine biomechanics laboratories — this project ran round-robin testing of composite lumbar spine surrogates across institutions in North America and Australia. The results showed inter-laboratory variability exceeding temporal variability within a single lab, identified sources of divergence in fixtures and protocol interpretation, and motivated harmonized testing practices.
+themes:
+  - reproducibility
+  - multi-laboratory studies
+  - test protocols
+  - preclinical evidence
+hero: Wahbeh2026.png
+images:
+  - ORS2024a.png
+  - sawbones-temporal-rom.png
+related_publications:
+  - Wahbeh2026
+  - Coltoff2026
+  - Coltoff2026_protocol
+  - ISTA2024_b
+  - ISTA2024_c
+  - SB3C2024a
+  - SB3C2024b
+  - ORS2024a
+  - ORS2024b
+

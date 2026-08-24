@@ -1,0 +1,20 @@
+title: Robotic Benchtop Spine Testing Platform
+category: testing-validating-models
+summary: >
+  A robotic testing platform that applies programmable, repeatable loading regimes to spine specimens and analogue models — the experimental workhorse of the doctoral research.
+description: >
+  Conventional spine testing depends heavily on operator skill and specimen variability. This project contributed to a robotic benchtop platform that applies standardized pure-moment loading protocols (±7.5 Nm across flexion–extension, lateral bending, and axial rotation) with sub-degree repeatability. Starting with implementation and validation of the platform's control system, the work grew into using the robot as the primary validation instrument for every analogue model developed in the lab, and later for multi-specimen collaborative testing with partner institutions.
+themes:
+  - robotics
+  - control systems
+  - mechanical testing
+  - standardization
+hero: instron-setup.png
+images:
+  - kuka-testing.jpg
+  - ESMC2022.png
+related_publications:
+  - SURE2019
+  - ESMC2022
+  - M2D2024
+

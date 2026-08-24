@@ -1,0 +1,28 @@
+title: 3D-Printed Analogue Spine Models
+category: building-physical-models
+summary: >
+  A family of fully 3D-printable lumbar spine surrogates — vertebrae, discs, and ligaments — designed as reproducible, cost-effective alternatives to cadaveric tissue for biomechanical testing.
+description: >
+  Cadaveric specimens are the gold standard for spine biomechanics, but they are costly, ethically constrained, and biologically variable. This project developed fully 3D-printable analogue models of the lumbar spine (L1–S1 and motion segments), manufactured on consumer-grade FDM and resin printers: rigid printed vertebrae, flexible TPU intervertebral discs, and printed ligamentous structures including the thoracolumbar fascia. The models were validated under displacement-controlled pure moment loading against ex vivo and finite element reference data, then used as an experimental platform for systematic ligament construction–deconstruction studies quantifying how individual ligaments — and their failure — shape spinal stiffness.
+themes:
+  - additive manufacturing
+  - spine surrogates
+  - pure moment testing
+  - ligament mechanics
+hero: analogue-l2l5-panels.png
+images:
+  - hero-analogue-spine.png
+  - IMAC2024b.png
+  - EUROSPINE2024.png
+related_publications:
+  - Dukkipati3DP2025
+  - 2Manu2024
+  - 1Manu2022
+  - IMAC2024_Ch3
+  - IMAC2024_Ch12
+  - EUROSPINE2024
+  - CSS2024
+  - GSC2023a
+  - GSC2023b
+  - SLD2023
+

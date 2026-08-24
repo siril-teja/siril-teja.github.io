@@ -1,0 +1,28 @@
+title: Evaluation of a Fast-Solving Rigid Body Spine Model Inclusive of Intra-Abdominal Pressure
+authors: >
+  Siril Teja Dukkipati, Mark Driscoll
+year: 2025
+type: journal
+venue: IEEE Transactions on Biomedical Engineering
+doi: 10.1109/TBME.2025.3561692
+url: >
+  https://doi.org/10.1109/TBME.2025.3561692
+volume: 72
+issue: 10
+pages: 3108-3119
+summary: >
+  A fast-solving 15-DOF rigid-body lumbar spine model inclusive of intra-abdominal pressure, with 279 force-generating elements, validated against in vivo segmental stiffness literature; ~1.4 s simulation runtime makes it suitable for muscle recruitment optimization.
+abstract: >
+  Musculoskeletal spine models that neglect intra-abdominal pressure (IAP) and are computationally intensive limit their use in muscle recruitment optimization and machine learning applications.
+  This paper presents a fast-solving, high-fidelity rigid-body dynamics (RBD) spine model of the lumbar spine inclusive of IAP.
+  The model includes the pelvis, five lumbar vertebrae, a lumped thoracic spine, and the ribcage, adapted from MRI scans of a healthy adult male.
+  Intervertebral discs are modeled as 3-DOF gimbal joints with nonlinear moment-rotation relationships, while spinal ligaments are represented as nonlinear tension-only springs.
+  Two IAP modeling methods are implemented and evaluated.
+  The model comprises 15 degrees of freedom constrained by 279 independent force-generating elements, with a compilation time of approximately 6 seconds and a simulation run time of 1.4 seconds.
+  Lumbar segmental stiffness profiles were validated against in vivo literature data.
+  The model demonstrates applicability for muscle recruitment optimization and provides an intuitive MATLAB-native tool for physiological spine loading visualization.
+code: >
+  https://github.com/siril-teja/RBDmodel-io
+figure: /src/assets/research/3Manu2024.png
+selected: true
+

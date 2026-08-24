@@ -1,0 +1,143 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { researchImage } from '../lib/images';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  index?: number;
+  flip?: boolean;
+  publicationCount?: number;
+}
+
+const { project, index = 0, flip = false, publicationCount } = Astro.props;
+const d = project.data;
+
+const heroSrc = await researchImage(d.hero ? `/src/assets/research/${d.hero}` : undefined);
+
+const CATEGORY_NUM: Record<string, string> = {
+  'building-physical-models': '3.1',
+  'building-computational-models': '3.2',
+  'testing-validating-models': '3.3',
+  'bringing-models-together': '3.4',
+};
+---
+
+<article class:list={['project', { flip }]} data-reveal>
+  <figure class="project-figure">
+    {
+      heroSrc && (
+        <Image
+          src={heroSrc}
+          alt={`Research figure: ${d.title}`}
+          widths={[640, 1000, 1400, 1800]}
+          sizes="(max-width: 60rem) 100vw, 46vw"
+          loading="lazy"
+        />
+      )
+    }
+  </figure>
+
+  <div class="project-body">
+    <p class="meta project-index">
+      <span class="accent">{CATEGORY_NUM[d.category]}</span>&nbsp;/&nbsp;{publicationCount !==
+      undefined
+        ? `${publicationCount} related publications`
+        : ''}
+    </p>
+    <h3 class="h3 project-title">{d.title}</h3>
+    <p class="project-summary">{d.summary}</p>
+
+    {
+      d.themes.length > 0 && (
+        <ul class="theme-list" role="list">
+          {d.themes.map((t) => (
+            <li>{t}</li>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      d.related_publications.length > 0 && (
+        <a href={`/work/#${project.id}`} class="arrow-link">View the work</a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .project {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--border);
+  }
+  .project.flip .project-figure {
+    order: 2;
+  }
+
+  .project-figure {
+    margin: 0;
+  }
+  .project-figure :global(img) {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-body {
+    display: grid;
+    gap: 1.1rem;
+    justify-items: start;
+  }
+  .project-index {
+    margin-bottom: 0;
+  }
+  .accent {
+    color: var(--accent);
+  }
+
+  .project-title {
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  }
+
+  .project-summary {
+    color: var(--text-2);
+    max-width: 52ch;
+    text-wrap: pretty;
+  }
+
+  .theme-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .theme-list li {
+    font-family: var(--font-mono);
+    font-size: var(--size-meta);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 99px;
+    padding: 0.35em 0.9em;
+  }
+
+  @media (max-width: 60rem) {
+    .project {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    .project.flip .project-figure {
+      order: 0;
+    }
+    .project-figure {
+      aspect-ratio: 16 / 10;
+    }
+  }
+</style>

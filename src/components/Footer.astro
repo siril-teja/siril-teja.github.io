@@ -1,0 +1,134 @@
+---
+const year = new Date().getFullYear();
+const socials = [
+  { label: 'GitHub', url: 'https://github.com/siril-teja' },
+  { label: 'LinkedIn', url: 'https://linkedin.com/in/siril-td' },
+  { label: 'Google Scholar', url: 'https://scholar.google.com/citations?user=IeGmZcAAAAAJ' },
+  { label: 'ORCID', url: 'https://orcid.org/0000-0001-6047-4513' },
+  { label: 'ResearchGate', url: 'https://www.researchgate.net/profile/Siril-Teja-Dukkipati' },
+  { label: 'Instagram', url: 'https://www.instagram.com/siril.td/' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <p class="footer-name">Siril Dukkipati</p>
+      <p class="meta">Computational biomechanics · Model V&V</p>
+    </div>
+
+    <div class="footer-contact">
+      <p class="meta">Contact</p>
+      <a href="mailto:siril.dukkipati@mdsim.health" class="text-link footer-link"
+        >siril.dukkipati@mdsim.health</a
+      >
+      <a href="mailto:siril.dukkipati@mail.mcgill.ca" class="text-link footer-link"
+        >siril.dukkipati@mail.mcgill.ca</a
+      >
+    </div>
+  </div>
+
+  <nav class="container footer-social" aria-label="Social links">
+    <ul>
+      {
+        socials.map((s) => (
+          <li>
+            <a href={s.url} target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              {s.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+
+  <div class="container footer-base">
+    <p class="meta">&copy; {year} Siril Teja Dukkipati</p>
+    <p class="meta">Luxembourg</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding-block: 3.5rem 2rem;
+    margin-top: var(--space-section);
+    background: var(--surface);
+  }
+
+  .footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .footer-name {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    margin-bottom: 0.4rem;
+  }
+  .footer-contact {
+    display: grid;
+    gap: 0.3rem;
+    justify-items: end;
+    text-align: right;
+  }
+  .footer-link {
+    color: var(--text-2);
+    font-size: var(--size-small);
+  }
+  .footer-link:hover {
+    color: var(--accent);
+  }
+
+  .footer-social {
+    padding-block: 1.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .footer-social ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+  }
+  .footer-social-link {
+    font-family: var(--font-mono);
+    font-size: var(--size-meta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    transition: color 0.2s;
+  }
+  .footer-social-link:hover {
+    color: var(--accent);
+  }
+
+  .footer-base {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  @media (max-width: 48rem) {
+    .footer-top {
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .footer-contact {
+      justify-items: start;
+      text-align: left;
+    }
+    .footer-social ul {
+      gap: 0.6rem 1.5rem;
+    }
+    .footer-base {
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+  }
+</style>

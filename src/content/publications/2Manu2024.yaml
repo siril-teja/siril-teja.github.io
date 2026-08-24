@@ -1,0 +1,20 @@
+title: Design Improvements and Validation of a Novel Fully 3D Printed Analogue Lumbar Spine Motion Segment
+authors: >
+  Siril Teja Dukkipati, Mark Driscoll
+year: 2024
+type: journal
+venue: Journal of Bionic Engineering
+doi: 10.1007/s42235-024-00512-8
+url: >
+  https://link.springer.com/10.1007/s42235-024-00512-8
+volume: 21
+issue: 3
+pages: 1388-1396
+summary: >
+  Design improvements and pure-moment validation of a fully 3D-printed analogue lumbar spine motion segment, benchmarked against ex vivo and in silico reference data.
+abstract: >
+  Spine biomechanical testing methods in the past few decades have not evolved beyond employing either cadaveric studies or finite element modeling techniques.
+  A fully 3D printable L1-S1 analogue spine model with ligaments is developed and validated in this research.
+figure: /src/assets/research/2Manu2024.png
+selected: true
+
