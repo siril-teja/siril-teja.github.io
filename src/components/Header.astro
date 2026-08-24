@@ -1,0 +1,196 @@
+---
+const nav = [
+  { num: '01', label: 'Current Work', href: '/#current-work' },
+  { num: '02', label: 'What I Work On', href: '/#what-i-work-on' },
+  { num: '03', label: 'Selected Work', href: '/work/' },
+  { num: '04', label: 'Publications', href: '/publications/' },
+  { num: '05', label: 'Teaching', href: '/teaching/' },
+  { num: '06', label: 'About', href: '/about/' },
+  { num: null, label: 'CV', href: '/cv/Siril_Dukkipati_CV.pdf' },
+];
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) =>
+  href.startsWith('/#') ? false : pathname === href || (href !== '/' && pathname.startsWith(href));
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/">Siril&nbsp;Dukkipati</a>
+
+    <button
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="nav-toggle-box" aria-hidden="true">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </span>
+      <span class="nav-toggle-label">Menu</span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href} class:list={[{ active: isActive(item.href) }]} aria-current={isActive(item.href) ? 'page' : undefined}>
+                {item.num && <span class="nav-num">{item.num}</span>}
+                <span>{item.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 11, 11, 0.86);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 4rem;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .brand:hover {
+    color: var(--accent);
+  }
+
+  .site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .site-nav a {
+    display: inline-flex;
+    gap: 0.45em;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    padding-block: 0.5rem;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .site-nav a:hover,
+  .site-nav a.active {
+    color: var(--text);
+  }
+  .site-nav a.active {
+    border-bottom-color: var(--accent);
+  }
+  .nav-num {
+    color: var(--accent);
+  }
+
+  /* mobile */
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 0;
+  }
+  .nav-toggle-box {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 20px;
+  }
+  .nav-toggle-line {
+    height: 1.5px;
+    background: var(--text);
+    transition: transform 0.3s var(--ease-out), opacity 0.2s;
+  }
+  .nav-toggle[aria-expanded='true'] .nav-toggle-line:first-child {
+    transform: translateY(3.25px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded='true'] .nav-toggle-line:last-child {
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+  .nav-toggle-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-2);
+  }
+
+  @media (max-width: 60rem) {
+    .nav-toggle {
+      display: inline-flex;
+    }
+    .site-nav {
+      position: fixed;
+      inset: 4rem 0 auto 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0 1.5rem;
+      transform: translateY(-8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s, transform 0.25s var(--ease-out), visibility 0.25s;
+    }
+    .site-nav.open {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+    .site-nav ul {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding-inline: var(--gutter);
+    }
+    .site-nav li {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+    .site-nav a {
+      width: 100%;
+      justify-content: flex-start;
+      padding: 0.9rem 0;
+      font-size: 0.85rem;
+      border-bottom: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const navEl = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    navEl?.classList.toggle('open', !open);
+  });
+  navEl?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      toggle?.setAttribute('aria-expanded', 'false');
+      navEl.classList.remove('open');
+    })
+  );
+</script>

@@ -1,0 +1,20 @@
+title: Toward a Robotic Spine Simulator
+category: bringing-models-together
+summary: >
+  The doctoral thesis capstone: physical surrogates, robotic testing, and computational models unified into one validation ecosystem — now extended toward clinical-grade medical simulation.
+description: >
+  Physical models, computational models, and experiments are most useful when they inform one another. This thread of the doctoral research brought the 3D-printed surrogates, the robotic testing platform, and the rigid-body and rigid-flexible models into a single workflow: models were fabricated, loaded on the robot, compared against computational predictions, refined, and re-tested. That same loop — build, test, simulate, validate — is what model credibility frameworks such as ASME V&V 40 formalize, and it is the bridge from academic spine biomechanics to patient-specific medical simulation. Translational extensions include custom spine phantoms for surgical training through a McGill lab spin-off, and validation data for a patient-specific spine digital twin with clinical partners.
+themes:
+  - model credibility
+  - verification & validation
+  - translational research
+  - medical simulation
+hero: tim-integration.png
+images:
+  - torso-model-photo.jpg
+  - M2D2024.png
+related_publications:
+  - PhDThesis2025
+  - M2D2024
+  - VPH2026
+

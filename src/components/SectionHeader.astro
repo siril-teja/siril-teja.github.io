@@ -1,0 +1,27 @@
+---
+interface Props {
+  num: string;
+  label: string;
+  heading?: string;
+  lede?: string;
+  id?: string;
+}
+const { num, label, heading, lede, id } = Astro.props;
+---
+
+<div class="section-header" id={id}>
+  <p class="kicker"><span class="num">{num}</span><span>/</span><span>{label}</span></p>
+  {heading && <h2 class="h2" data-reveal>{heading}</h2>}
+  {lede && <p class="lede" data-reveal>{lede}</p>}
+</div>
+
+<style>
+  .section-header {
+    display: grid;
+    gap: 1.25rem;
+    margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  .section-header .h2 {
+    max-width: 22ch;
+  }
+</style>

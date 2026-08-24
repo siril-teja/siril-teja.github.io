@@ -1,0 +1,159 @@
+---
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/fraunces/opsz-italic.css';
+import '@fontsource-variable/inter';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Siril Dukkipati — researcher and engineer working across computational biomechanics, experimental biomechanics, and verification & validation of medical simulation.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="theme-color" content="#0b0b0b" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      document.documentElement.classList.add('js');
+
+      // ---- reveal on scroll ----
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll('[data-reveal]');
+      if (prefersReduced || !('IntersectionObserver' in window)) {
+        targets.forEach((t) => t.classList.add('is-revealed'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-revealed');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -10% 0px', threshold: 0.05 }
+        );
+        targets.forEach((t) => io.observe(t));
+      }
+
+      // ---- lightbox ----
+      let overlay: HTMLDivElement | null = null;
+      let boxImg: HTMLImageElement | null = null;
+      let closeBtn: HTMLButtonElement | null = null;
+      let lastFocus: Element | null = null;
+
+      function largestSrc(img: HTMLImageElement): string {
+        if (img.srcset) {
+          let best = { url: '', w: 0 };
+          for (const part of img.srcset.split(',')) {
+            const [url, w] = part.trim().split(/\s+/);
+            const width = w && w.endsWith('w') ? parseInt(w, 10) : 0;
+            if (url && width >= best.w) best = { url, w: width };
+          }
+          if (best.url) return best.url;
+        }
+        return img.currentSrc || img.src;
+      }
+
+      function closeLightbox() {
+        if (!overlay) return;
+        overlay.classList.remove('open');
+        document.documentElement.style.overflow = '';
+        window.removeEventListener('keydown', onKey);
+        window.removeEventListener('wheel', onWheel);
+        window.removeEventListener('touchmove', onTouch);
+        const el = overlay;
+        setTimeout(() => {
+          el.hidden = true;
+          if (boxImg) boxImg.src = '';
+        }, 250);
+        if (lastFocus instanceof HTMLElement) lastFocus.focus();
+      }
+
+      function onKey(e: KeyboardEvent) {
+        if (e.key === 'Escape') closeLightbox();
+      }
+      function onWheel() {
+        closeLightbox();
+      }
+      function onTouch(e: TouchEvent) {
+        if (e.touches.length > 0) closeLightbox();
+      }
+
+      function openLightbox(src: string, alt: string) {
+        if (!overlay) {
+          overlay = document.createElement('div');
+          overlay.className = 'lightbox';
+          overlay.hidden = true;
+          overlay.setAttribute('role', 'dialog');
+          overlay.setAttribute('aria-modal', 'true');
+          overlay.setAttribute('aria-label', 'Enlarged image view');
+          boxImg = document.createElement('img');
+          boxImg.alt = '';
+          boxImg.loading = 'eager';
+          boxImg.setAttribute('data-image-component', 'true');
+          closeBtn = document.createElement('button');
+          closeBtn.className = 'lightbox-close';
+          closeBtn.setAttribute('aria-label', 'Close enlarged view');
+          closeBtn.textContent = '×';
+          const hint = document.createElement('p');
+          hint.className = 'lightbox-hint';
+          hint.setAttribute('aria-hidden', 'true');
+          hint.textContent = 'Esc or scroll to close';
+          overlay.append(boxImg, closeBtn, hint);
+          document.body.append(overlay);
+          closeBtn.addEventListener('click', closeLightbox);
+          overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeLightbox();
+          });
+        }
+        if (!boxImg) return;
+        boxImg.src = src;
+        boxImg.alt = alt;
+        lastFocus = document.activeElement;
+        overlay.hidden = false;
+        requestAnimationFrame(() => overlay?.classList.add('open'));
+        document.documentElement.style.overflow = 'hidden';
+        closeBtn?.focus();
+        window.addEventListener('keydown', onKey);
+        window.addEventListener('wheel', onWheel, { passive: true });
+        window.addEventListener('touchmove', onTouch, { passive: true });
+      }
+
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const img = target.closest('main img');
+        if (!img || overlay?.contains(e.target as Node)) return;
+        e.preventDefault();
+        openLightbox(largestSrc(img as HTMLImageElement), (img as HTMLImageElement).alt);
+      });
+    </script>
+  </body>
+</html>

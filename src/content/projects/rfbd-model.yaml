@@ -1,0 +1,23 @@
+title: Rigid-Flexible Body Musculoskeletal Model of the Spine and Torso
+category: building-computational-models
+summary: >
+  An integrated rigid-flexible body dynamic formulation for computationally efficient musculoskeletal simulation and muscle recruitment of the spine and torso.
+description: >
+  Rigid-body models are fast but omit tissue compliance; finite element models capture it at prohibitive cost. This project developed a rigid-flexible body dynamics (RFBD) formulation that embeds flexible elements within an efficient multibody spine-and-torso model, aimed at muscle recruitment optimization problems. Validated for fast-solving simulation, the model extends the rigid-body work toward higher-fidelity load sharing across the torso — conceived as a parametric biomechanical digital twin.
+themes:
+  - rigid-flexible body dynamics
+  - musculoskeletal modeling
+  - optimization
+  - digital twin
+hero: rfbd-model-architecture.png
+images:
+  - rom-validation-curves.png
+  - rfbd-segment-rigid-flexible.png
+related_publications:
+  - TBME2025_Flexible
+  - CSS2025_a
+  - CSS2025_b
+external_links:
+  - label: Code
+    url: https://github.com/siril-teja/ROMmodel-io
+

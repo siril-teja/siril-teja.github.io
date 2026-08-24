@@ -1,0 +1,239 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { researchImage } from '../lib/images';
+
+const TYPE_LABELS: Record<string, string> = {
+  journal: 'Journal Article',
+  'book-chapter': 'Book Chapter',
+  'conference-talk': 'Conference Talk',
+  'conference-poster': 'Conference Poster',
+  manuscript: 'Manuscript',
+  preprint: 'Preprint',
+  'thesis-phd': 'Doctoral Thesis',
+  'thesis-bachelor': "Bachelor's Thesis",
+};
+
+interface Props {
+  pub: CollectionEntry<'publications'>;
+  variant?: 'full' | 'compact';
+  figureLoading?: 'eager' | 'lazy';
+}
+
+const { pub, variant = 'full', figureLoading = 'lazy' } = Astro.props;
+const d = pub.data;
+
+const figSrc = await researchImage(d.figure);
+
+const doiUrl = d.doi && !d.doi.startsWith('http') ? `https://doi.org/${d.doi}` : d.doi;
+const primaryUrl = doiUrl || d.url;
+
+const authorParts = d.authors.split(/,\s*/).map((a) => a.trim());
+const authorsHtml = authorParts
+  .map((a) => (a.includes('Dukkipati') ? `<strong>${a}</strong>` : a))
+  .join(', ');
+
+const links: Array<{ label: string; url?: string }> = [
+  { label: 'DOI', url: primaryUrl },
+  { label: 'Code', url: d.code },
+  { label: 'Data', url: d.data },
+];
+const activeLinks = links.filter((l) => l.url);
+---
+
+<article class:list={['pub', `pub--${variant}`]} id={pub.id}>
+  <div class="pub-main">
+    <p class="meta pub-meta">
+      <span class="pub-year">{d.year}</span>
+      <span class="pub-type">{TYPE_LABELS[d.type] ?? d.type}</span>
+      {d.note && <span class="pub-note">{d.note}</span>}
+    </p>
+
+    <h3 class="pub-title">
+      {primaryUrl ? (
+        <a href={primaryUrl} target="_blank" rel="noopener noreferrer">{d.title}</a>
+      ) : (
+        d.title
+      )}
+    </h3>
+
+    <p class="pub-authors" set:html={authorsHtml} />
+
+    <p class="pub-venue">
+      {d.venue}
+      {d.volume && <span>&nbsp;{d.volume}{d.issue && `(${d.issue})`}{d.pages && `, ${d.pages}`}</span>}
+      {d.location && <span class="pub-location"> — {d.location}</span>}
+    </p>
+
+    {variant === 'full' && d.summary && <p class="pub-summary">{d.summary}</p>}
+
+    {
+      variant === 'full' && d.abstract && (
+        <details class="pub-abstract">
+          <summary>Abstract</summary>
+          <p>{d.abstract}</p>
+        </details>
+      )
+    }
+
+    {
+      activeLinks.length > 0 && (
+        <ul class="pub-links" role="list">
+          {activeLinks.map((l) => (
+            <li>
+              <a href={l.url} target="_blank" rel="noopener noreferrer" class="pub-link">
+                {l.label} ↗
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+
+  {
+    variant === 'full' && figSrc && (
+      <figure class="pub-figure figure-frame">
+        <Image src={figSrc} alt={`Figure from: ${d.title}`} widths={[560, 900, 1300, 1800]} sizes="(max-width: 60rem) 100vw, 40rem" loading={figureLoading} />
+      </figure>
+    )
+  }
+</article>
+
+<style>
+  .pub {
+    padding-block: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .pub--full .pub-main {
+    max-width: 46rem;
+  }
+
+  .pub--full:has(.pub-figure) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(14rem, 26vw, 22rem);
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .pub--full:has(.pub-figure) .pub-main {
+    max-width: none;
+  }
+
+  .pub-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+    margin-bottom: 0.6rem;
+  }
+  .pub-year {
+    color: var(--accent);
+  }
+  .pub-note {
+    color: var(--text-2);
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+
+  .pub-title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 450;
+    line-height: 1.28;
+    text-wrap: balance;
+    margin-bottom: 0.5rem;
+  }
+  .pub-title a:hover {
+    color: var(--accent);
+  }
+
+  .pub--compact .pub-title {
+    font-size: 1.08rem;
+  }
+
+  .pub-authors {
+    font-size: var(--size-small);
+    color: var(--text-2);
+    margin-bottom: 0.3rem;
+  }
+  .pub-authors strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .pub-venue {
+    font-size: var(--size-small);
+    font-style: italic;
+    color: var(--muted);
+  }
+  .pub-location {
+    font-style: normal;
+  }
+
+  .pub-summary {
+    margin-top: 0.9rem;
+    font-size: 0.95rem;
+    color: var(--text-2);
+    max-width: 62ch;
+    text-wrap: pretty;
+  }
+
+  .pub-abstract {
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+  }
+  .pub-abstract summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: var(--size-meta);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    width: fit-content;
+  }
+  .pub-abstract summary:hover {
+    color: #d97e50;
+  }
+  .pub-abstract p {
+    margin-top: 0.75rem;
+    color: var(--text-2);
+    line-height: 1.6;
+    border-left: 2px solid var(--border-strong);
+    padding-left: 1rem;
+  }
+
+  .pub-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 1rem 0 0;
+    padding: 0;
+  }
+  .pub-link {
+    font-family: var(--font-mono);
+    font-size: var(--size-meta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    transition: color 0.2s;
+  }
+  .pub-link:hover {
+    color: var(--accent);
+  }
+
+  .pub-figure {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  @media (max-width: 60rem) {
+    .pub--full:has(.pub-figure) {
+      grid-template-columns: 1fr;
+    }
+    .pub-figure {
+      order: -1;
+      max-width: 30rem;
+    }
+  }
+</style>

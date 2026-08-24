@@ -1,0 +1,159 @@
+---
+import { Image } from 'astro:assets';
+import { researchImage } from '../../lib/images';
+
+const heroSrc = await researchImage('/src/assets/research/hero-rfbd-torso.png');
+const portraitModules = import.meta.glob('/src/assets/portrait/siril.png', {
+  eager: true,
+}) as Record<string, { default: ImageMetadata }>;
+const portraitSrc = portraitModules['/src/assets/portrait/siril.png']?.default;
+---
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <h1 class="display hero-headline" data-reveal>
+        <span class="hero-line">Computational</span>
+        <span class="hero-line">Biomechanics</span>
+        <span class="hero-amp display">&amp;&nbsp;Model&nbsp;V&amp;V</span>
+      </h1>
+
+      <p class="lede hero-lede" data-reveal style="--reveal-delay:.15s">
+        I work across biomechanical model development and verification &amp; validation,
+        combining computational and experimental approaches to establish credible medical
+        simulation.
+      </p>
+
+      <div class="hero-person" data-reveal style="--reveal-delay:.25s">
+        <p class="hero-name">Siril Dukkipati</p>
+        <p class="meta">Researcher &amp; engineer</p>
+        <p class="meta hero-affiliation">MDsim · Luxembourg</p>
+      </div>
+
+      {
+        portraitSrc && (
+          <figure class="hero-portrait" data-reveal style="--reveal-delay:.35s">
+            <Image
+              src={portraitSrc}
+              alt="Black-and-white portrait of Siril Dukkipati"
+              widths={[240, 360, 480]}
+              sizes="200px"
+              loading="eager"
+            />
+          </figure>
+        )
+      }
+    </div>
+
+    <div class="hero-visual" data-reveal style="--reveal-delay:.2s">
+      {
+        heroSrc && (
+          <Image
+            src={heroSrc}
+            alt="Rigid-flexible body dynamics model of the spine and torso — sagittal and frontal views with ribcage, pelvis, abdominal volume, and muscle lines"
+            widths={[560, 900, 1354]}
+            sizes="(max-width: 60rem) 80vw, 40vw"
+            loading="eager"
+            class="hero-img"
+          />
+        )
+      }
+      <p class="meta hero-caption">
+        Rigid–flexible body model of the spine and torso · doctoral research, McGill University
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 8vh, 6rem) clamp(3rem, 6vh, 5rem);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: center;
+  }
+
+  .hero-copy {
+    display: grid;
+    gap: 2rem;
+    justify-items: start;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.4rem, 5.6vw, 4.9rem);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    display: grid;
+  }
+  .hero-line {
+    display: block;
+  }
+  .hero-amp {
+    font-style: italic;
+    font-weight: 320;
+    color: var(--accent);
+    margin-top: 0.08em;
+  }
+
+  .hero-lede {
+    max-width: 44ch;
+  }
+
+  .hero-person {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .hero-name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.2rem;
+  }
+  .hero-affiliation {
+    color: var(--text-2);
+  }
+
+  .hero-portrait {
+    margin: 0.5rem 0 0;
+    width: clamp(8rem, 11vw, 10rem);
+    border: 1px solid var(--border);
+  }
+  .hero-portrait img {
+    width: 100%;
+    height: auto;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    background:
+      radial-gradient(90% 70% at 65% 30%, #17130f 0%, transparent 65%),
+      var(--surface);
+    padding: clamp(1.5rem, 3vw, 3rem);
+  }
+  .hero-visual :global(.hero-img) {
+    width: 100%;
+    max-width: 26rem;
+    height: auto;
+  }
+  .hero-caption {
+    color: var(--muted);
+    text-align: center;
+  }
+
+  @media (max-width: 60rem) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-visual {
+      order: 2;
+    }
+  }
+</style>

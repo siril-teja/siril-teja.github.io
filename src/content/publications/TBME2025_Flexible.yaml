@@ -1,0 +1,15 @@
+title: An Integrated Rigid-Flexible Body Dynamic Approach to Computationally Efficient Musculoskeletal Modeling and Muscle Recruitment Simulation of the Spine and Torso
+authors: >
+  Siril Teja Dukkipati, Mark Driscoll
+year: 2025
+type: journal
+venue: IEEE Transactions on Biomedical Engineering
+doi: 10.1109/TBME.2025.3617301
+url: >
+  https://doi.org/10.1109/TBME.2025.3617301
+summary: An integrated rigid-flexible body dynamic formulation enabling computationally efficient musculoskeletal modeling and muscle recruitment simulation of the spine and torso.
+code: >
+  https://github.com/siril-teja/ROMmodel-io
+figure: /src/assets/research/rfbd-model-architecture.png
+selected: true
+

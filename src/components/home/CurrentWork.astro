@@ -1,0 +1,164 @@
+---
+import SectionHeader from '../SectionHeader.astro';
+
+const flow = [
+  {
+    label: 'Model Development',
+    text: 'Computational biomechanical model development — rigid-body, rigid-flexible, and patient-specific spine modelling.',
+  },
+  {
+    label: 'Verification & Validation',
+    text: 'Establishing model credibility through code and solution verification, and validation against experimental evidence.',
+  },
+  {
+    label: 'Experimental / Clinical Evidence',
+    text: 'Biomechanical testing, ex-vivo studies, retrospective clinical data, and standardized testing protocols.',
+  },
+  {
+    label: 'Medical Simulation',
+    text: 'The broader application context: regulatory-grade computer modelling and simulation for spine care.',
+  },
+];
+---
+
+<section class="section" id="current-work">
+  <div class="container">
+    <SectionHeader
+      num="01"
+      label="Current Work"
+      heading="Credible models for medical simulation."
+      lede="Postdoctoral researcher at MDsim S.A., Luxembourg, working on biomechanical model verification and clinical validation."
+    />
+
+    <div class="work-grid">
+      <div class="work-flow" data-reveal>
+        {
+          flow.map((step, i) => (
+            <div class="flow-step">
+              <div class="flow-marker">
+                <span class="meta">{String(i + 1).padStart(2, '0')}</span>
+                {i < flow.length - 1 && <span class="flow-line" aria-hidden="true" />}
+              </div>
+              <div>
+                <h3 class="flow-label">{step.label}</h3>
+                <p class="flow-text">{step.text}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <aside class="work-aside">
+        <div class="aside-block" data-reveal style="--reveal-delay:.1s">
+          <p class="meta aside-kicker">Position</p>
+          <p class="aside-title">Postdoctoral Researcher</p>
+          <p class="meta aside-meta">MDsim · Luxembourg · 2026—present</p>
+          <p class="aside-text">
+            Verification and validation of the SPINEsim platform — a Software-as-a-Medical-Device
+            digital twin for surgical planning — including ASME V&amp;V 40 credibility assessment
+            under FDA and EU-MDR expectations.
+          </p>
+        </div>
+
+        <div class="aside-block" data-reveal style="--reveal-delay:.2s">
+          <p class="meta aside-kicker">Supported by</p>
+          <p class="aside-title aside-title--small">FNR Postdoctoral Industrial Fellowship</p>
+          <p class="meta aside-meta">Fonds National de la Recherche, Luxembourg</p>
+          <p class="aside-text">
+            Clinical validation in collaboration with the Institute of Orthopaedic
+            Research and Biomechanics, University of Ulm.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .work-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .flow-step {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .flow-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--accent);
+  }
+  .flow-line {
+    width: 1px;
+    flex: 1;
+    background: var(--border-strong);
+    min-height: 2rem;
+  }
+
+  .flow-step > div:last-child {
+    padding-bottom: 2.25rem;
+  }
+  .flow-step:last-child > div:last-child {
+    padding-bottom: 0;
+  }
+
+  .flow-label {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.7rem);
+    font-weight: 450;
+    line-height: 1.2;
+    margin-bottom: 0.4rem;
+  }
+  .flow-text {
+    color: var(--text-2);
+    max-width: 52ch;
+    font-size: 0.95rem;
+    text-wrap: pretty;
+  }
+
+  .work-aside {
+    display: grid;
+    gap: 1.5rem;
+    border-left: 1px solid var(--border);
+    padding-left: clamp(1.5rem, 3vw, 3rem);
+  }
+  .aside-block {
+    display: grid;
+    gap: 0.45rem;
+  }
+  .aside-kicker {
+    color: var(--accent);
+  }
+  .aside-title {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 480;
+    line-height: 1.25;
+  }
+  .aside-title--small {
+    font-size: 1.15rem;
+  }
+  .aside-text {
+    margin-top: 0.5rem;
+    color: var(--text-2);
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 60rem) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+    .work-aside {
+      border-left: none;
+      padding-left: 0;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+  }
+</style>

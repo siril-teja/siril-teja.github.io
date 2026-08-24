@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Siril - Page not found">
+  <section class="nf">
+    <div class="container nf-inner">
+      <p class="meta nf-code">404</p>
+      <h1 class="display nf-title">Page not found.</h1>
+      <p class="lede">The link may be outdated — the site was rebuilt in 2026.</p>
+      <a class="btn" href="/">Back to the homepage</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .nf {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-section);
+  }
+  .nf-inner {
+    display: grid;
+    gap: 1.5rem;
+    justify-items: start;
+  }
+  .nf-code {
+    color: var(--accent);
+    font-size: 1rem;
+  }
+  .nf-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    max-width: 16ch;
+  }
+</style>

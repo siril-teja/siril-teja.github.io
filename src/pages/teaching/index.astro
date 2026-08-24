@@ -1,0 +1,303 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+
+const teachingImage = import.meta.glob('/src/assets/teaching/*', { eager: true }) as Record<
+  string,
+  { default: ImageMetadata }
+>;
+const classPhoto = teachingImage['/src/assets/teaching/mech561-fall2024.jpg']?.default;
+
+const taCourses = [
+  {
+    code: 'MECH 262',
+    name: 'Statistics and Measurement Lab',
+    terms: '6 semesters, 2022—2024',
+    note: 'Laboratory experiments, tutorials, and examination for the measurement-and-statistics course of the mechanical engineering program.',
+  },
+  {
+    code: 'MECH 290',
+    name: 'Design Graphics for Mechanical Engineering',
+    terms: '3 semesters, 2020—2021',
+    note: 'Engineering design process, CAD, and engineering graphic communication.',
+  },
+  {
+    code: 'MECH 360',
+    name: 'Principles of Manufacturing',
+    terms: 'Fall 2022',
+    note: 'Modern manufacturing processes from CAD to CNC machining, with hands-on part production and quality measurement.',
+  },
+  {
+    code: 'BIEN 500',
+    name: 'Medical Technology Innovation and Development',
+    terms: 'Winter 2024',
+    note: 'Systematic design methodologies for medical devices: clinical need identification, robust design, verification & validation testing, failure modes analysis, and regulatory affairs.',
+  },
+];
+
+const capstones = [
+  { names: 'Laroche C, Ahmad J, Auclair-Borduas D, Ahmed A', title: '3D printing of ribcage phantom for robotic spine', period: 'Sept 2024 – Apr 2025' },
+  { names: 'Ray S, Aziz A, Ali A, Eneim M', title: 'Failsafe improvements for pneumatic muscle testing', period: 'Sept 2022 – Apr 2023' },
+  { names: 'Thoma N, Barret B, Shewchuk C, Kay L', title: 'Inclusion of abdominal cavities in a benchtop spine model', period: 'Sept 2021 – Apr 2022' },
+  { names: 'Huang A, Mu Y, Chen R, He C, Xiao E, Skipper O, Jurchuk S', title: 'Design improvements on a robotic spine', period: 'Sept 2020 – Apr 2021' },
+];
+
+const summerStudents = [
+  { names: 'de Chazal N', title: 'Pressure control system improvements in the robotic spine benchtop', period: 'May – Aug 2025' },
+  { names: 'Zittoun N', title: 'Fabrication of biomechanical phantoms of the abdominal and thoracic cavities', period: 'May – Aug 2024' },
+];
+---
+
+<BaseLayout
+  title="Siril - Teaching"
+  description="Teaching experience of Siril Dukkipati: MECH 561 Biomechanics of Musculoskeletal Systems at McGill University and teaching assistance across five engineering courses."
+>
+  <section class="page-head">
+    <div class="container">
+      <SectionHeader
+        num="05"
+        label="Teaching"
+        heading="Teaching experience."
+        lede="Ten semesters of teaching assistance across the McGill engineering curriculum, and two semesters as sole instructor of a graduate course in musculoskeletal biomechanics."
+      />
+    </div>
+  </section>
+
+  <section class="container">
+    <!-- MECH 561 feature -->
+    <article class="feature" data-reveal>
+      <div class="feature-copy">
+        <p class="meta feature-role"><span class="accent">Course Instructor</span> · McGill University</p>
+        <h2 class="h2 feature-title">MECH 561 — Biomechanics of Musculoskeletal Systems</h2>
+        <p class="meta feature-terms">Fall 2024 · Winter 2024 — ~50 graduate &amp; undergraduate students</p>
+        <div class="prose">
+          <p>
+            I was sole instructor responsible for course design, delivery, and assessment: the
+            musculoskeletal system and the classification of tissues and joints; biomechanics
+            and clinical problems in orthopedics; modelling and force analysis of musculoskeletal
+            systems; and passive and active kinematics, including load–deformation behaviour of
+            connective tissue and stimulated muscle response, taught through experimental
+            approaches and case studies.
+          </p>
+          <p>
+            I developed the lesson plans, supervised group projects, and created the midterm and
+            final assessments. Student feedback exceeded 80% in both semesters.
+          </p>
+        </div>
+      </div>
+      {
+        classPhoto && (
+          <figure class="feature-photo">
+              <Image
+                src={classPhoto}
+                alt="MECH 561 class, Fall 2024, McGill University"
+                widths={[640, 1000, 1400]}
+                sizes="(max-width: 60rem) 100vw, 40rem"
+                loading="eager"
+              />
+            <figcaption class="figure-caption">
+              <span class="meta">MECH 561</span> Fall 2024 class, McGill University.
+            </figcaption>
+          </figure>
+        )
+      }
+    </article>
+
+    <!-- TA courses -->
+    <section class="ta-section" aria-label="Teaching assistant courses">
+      <h2 class="group-heading" data-reveal>Teaching Assistant · McGill University <span class="meta accent">2020—2025 · 10 semesters</span></h2>
+      <p class="ta-note" data-reveal>
+        Developed tutorials, laboratory experiments, and course materials; conducted and graded
+        examinations across the mechanical and biomedical engineering curriculum.
+      </p>
+      <ul class="course-list" role="list">
+        {
+          taCourses.map((c) => (
+            <li class="course" data-reveal>
+              <p class="meta course-code">{c.code}</p>
+              <div>
+                <h3 class="course-name">{c.name}</h3>
+                <p class="course-note">{c.note}</p>
+              </div>
+              <p class="meta course-terms">{c.terms}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <!-- Supervision -->
+    <section class="supervision" aria-label="Undergraduate supervision">
+      <h2 class="group-heading" data-reveal>Undergraduate Supervision</h2>
+      <div class="sup-grid">
+        <div class="sup-block" data-reveal>
+          <p class="meta side-kicker">Capstone projects</p>
+          <ul class="sup-list" role="list">
+            {
+              capstones.map((s) => (
+                <li>
+                  <span class="sup-title">{s.title}</span>
+                  <span class="sup-meta">{s.names} · {s.period}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="sup-block" data-reveal>
+          <p class="meta side-kicker">Summer research students</p>
+          <ul class="sup-list" role="list">
+            {
+              summerStudents.map((s) => (
+                <li>
+                  <span class="sup-title">{s.title}</span>
+                  <span class="sup-meta">{s.names} · {s.period}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head {
+    padding-block: clamp(3.5rem, 8vh, 6rem) 0;
+  }
+
+  .accent {
+    color: var(--accent);
+  }
+
+  .feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+  }
+  .feature-copy {
+    display: grid;
+    gap: 1.1rem;
+  }
+  .feature-title {
+    max-width: 22ch;
+  }
+  .feature-photo {
+    margin: 0;
+  }
+  .feature-photo img {
+    width: 100%;
+    height: auto;
+  }
+
+  .ta-section {
+    border-top: 1px solid var(--border);
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+  .group-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .ta-note {
+    color: var(--text-2);
+    max-width: 60ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .course-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .course {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr) auto;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding-block: 1.4rem;
+    border-top: 1px solid var(--border);
+  }
+  .course-code {
+    color: var(--accent);
+  }
+  .course-name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 480;
+    margin-bottom: 0.3rem;
+  }
+  .course-note {
+    font-size: 0.92rem;
+    color: var(--text-2);
+    max-width: 58ch;
+  }
+  .course-terms {
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .supervision {
+    border-top: 1px solid var(--border);
+    padding-block: clamp(3rem, 6vw, 5rem);
+  }
+  .sup-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2rem, 4vw, 4rem);
+    margin-top: 1.5rem;
+  }
+  .sup-block {
+    display: grid;
+    gap: 1rem;
+  }
+  .side-kicker {
+    color: var(--accent);
+  }
+  .sup-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .sup-list li {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .sup-title {
+    font-size: 0.95rem;
+  }
+  .sup-meta {
+    font-size: var(--size-meta);
+    font-family: var(--font-mono);
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  @media (max-width: 60rem) {
+    .feature {
+      grid-template-columns: 1fr;
+    }
+    .course {
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+    }
+    .course-terms {
+      white-space: normal;
+    }
+    .sup-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

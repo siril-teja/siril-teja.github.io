@@ -1,0 +1,187 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import ProjectEntry from '../components/ProjectEntry.astro';
+import PubEntry from '../components/PubEntry.astro';
+import Hero from '../components/home/Hero.astro';
+import CurrentWork from '../components/home/CurrentWork.astro';
+import Pillars from '../components/home/Pillars.astro';
+
+const projects = await getCollection('projects');
+const publications = await getCollection('publications');
+
+const homepageOrder = [
+  'analogue-spine-models',
+  'rbd-spine-model',
+  'interlab-standardization',
+  'robotic-spine-simulator',
+];
+const curated = homepageOrder
+  .map((id) => projects.find((p) => p.id === id))
+  .filter((p) => p !== undefined);
+
+const selectedPubs = publications
+  .filter((p) => p.data.selected && p.data.type === 'journal')
+  .sort((a, b) => b.data.year - a.data.year)
+  .slice(0, 4);
+
+const portrait = import.meta.glob('/src/assets/portrait/*', { eager: true }) as Record<
+  string,
+  { default: ImageMetadata }
+>;
+const portraitSrc = portrait['/src/assets/portrait/siril.png']?.default;
+---
+
+<BaseLayout title="Sit Straight!">
+  <Hero />
+  <CurrentWork />
+  <Pillars />
+
+  <!-- 03 / SELECTED WORK -->
+  <section class="section" id="selected-work">
+    <div class="container">
+      <SectionHeader
+        num="03"
+        label="Selected Work"
+        heading="Selected work."
+        lede="Physical models, computational models, and the studies that connect them."
+      />
+      <div>
+        {
+          curated.map((project, i) => (
+            <ProjectEntry
+              project={project}
+              index={i}
+              flip={i % 2 === 1}
+              publicationCount={project.data.related_publications.length}
+            />
+          ))
+        }
+      </div>
+      <div class="work-cta" data-reveal>
+        <a href="/work/" class="arrow-link">The complete research portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 / SELECTED PUBLICATIONS -->
+  <section class="section" id="publications">
+    <div class="container">
+      <SectionHeader
+        num="04"
+        label="Selected Publications"
+        heading="Representative publications."
+      />
+      <div>
+        {
+          selectedPubs.map((pub) => (
+            <PubEntry pub={pub} variant="compact" />
+          ))
+        }
+      </div>
+      <div class="work-cta" data-reveal>
+        <a href="/publications/" class="arrow-link">Complete research archive</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 / ABOUT -->
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <figure class="about-portrait" data-reveal>
+        {
+          portraitSrc && (
+            <Image
+              src={portraitSrc}
+              alt="Black-and-white portrait of Siril Dukkipati"
+              widths={[480, 720, 960]}
+              sizes="(max-width: 60rem) 100vw, 34rem"
+              loading="lazy"
+            />
+          )
+        }
+      </figure>
+
+      <div class="about-body">
+        <SectionHeader
+          num="05"
+          label="About"
+          heading="Biography."
+        />
+        <div class="prose about-prose" data-reveal>
+          <p>
+            I am a postdoctoral researcher at MDsim S.A. in Luxembourg, working on the
+            biomechanical verification and clinical validation of SPINEsim, a patient-specific
+            digital twin platform for spine surgical planning. The position is funded by the FNR
+            in collaboration with the Institute of Orthopaedic Research and Biomechanics at the
+            University of Ulm.
+          </p>
+          <p>
+            I hold a PhD in Mechanical Engineering (Biomechanics) from McGill University, where
+            I developed robotic benchtop testing, 3D-printable spine surrogates, and
+            computational spine models.
+          </p>
+        </div>
+        <div class="about-actions" data-reveal>
+          <a href="/about/" class="btn">More about me</a>
+          <a href="/cv/Siril_Dukkipati_CV.pdf" target="_blank" rel="noopener noreferrer" class="arrow-link">Curriculum vitae</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .work-cta {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2rem;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: start;
+  }
+
+  .about-portrait {
+    margin: 0;
+    border: 1px solid var(--border);
+    position: sticky;
+    top: 6rem;
+  }
+  .about-portrait img {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-body :global(.section-header) {
+    margin-bottom: 2rem;
+  }
+  .about-prose p {
+    max-width: 58ch;
+  }
+  .about-prose p + p {
+    margin-top: 1.1em;
+  }
+
+  .about-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.25rem;
+  }
+
+  @media (max-width: 60rem) {
+    .about-grid {
+      grid-template-columns: 1fr;
+    }
+    .about-portrait {
+      position: static;
+      max-width: 24rem;
+    }
+  }
+</style>

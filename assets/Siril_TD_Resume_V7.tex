@@ -1,0 +1,984 @@
+\documentclass[10pt, letterpaper]{article}
+
+
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+
+
+
+
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Siril's CV},
+    pdfauthor={Siril Dukkipati},
+    pdfcreator={Siril Dukkipati},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    % \usepackage[T1]{fontenc} % this breaks sb2nov
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+
+
+% Some settings:
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0cm} % set column seperation
+\makeatletter
+\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
+\patchcmd{\ps@customFooterStyle}{\thepage}{
+    \color{gray}\textit{\small \monthyeardate\today \hfill Page \thepage{} of \pageref*{LastPage}}
+}{}{} % replace number by desired string
+\makeatother
+\pagestyle{customFooterStyle}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\circ$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0.4 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0.2 cm + 0.00001 cm
+    }{
+        0.2 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{\monthyeardate\today
+ }\hspace{\widthof{\monthyeardate\today
+}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{}
+
+    %\placelastupdatedtext
+    
+    
+    \begin{header}
+        \textbf{\fontsize{24 pt}{24 pt}\selectfont Siril Teja Dukkipati, PhD}
+
+        \vspace{0.3 cm}
+
+        \normalsize
+        %\mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}1007A, 1430 City Councillors St, Montréal, Canada}%
+        %\kern 0.25 cm \\
+        \AND
+        \kern 0.25 cm        \mbox{\hrefWithoutArrow{mailto:siril.dukkipati@mail.mcgill.ca}{\color{black}{\footnotesize\faEnvelope}\hspace*{0.13cm}siril.dukkipati@mail.mcgill.ca}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{tel:+91 9573835454}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+91 9573835454}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://siril.me/}{\color{black}{\footnotesize\faLink}\hspace*{0.13cm}siril.me}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://linkedin.com/in/siril-td}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}LinkedIn}}%
+        \kern 0.25 cm%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://github.com/siril-teja}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}GitHub}}%
+        
+        \\
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://scholar.google.com/citations?user=IeGmZcAAAAAJ}{\color{black}{\footnotesize\faGoogle }\hspace*{0.13cm}Google Scholar}}
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://orcid.org/0000-0001-6047-4513}{\color{black}{\footnotesize\faOrcid}\hspace*{0.13cm}ORCID}}%
+        \AND%
+        \kern 0.25 cm%
+        \mbox{\hrefWithoutArrow{https://www.researchgate.net/profile/Siril-Teja-Dukkipati}{\color{black}{\footnotesize\faResearchgate}\hspace*{0.13cm}ResearchGate}}%
+    \end{header}
+
+    \vspace{0.3 cm - 0.3 cm}
+
+
+    % \section{Summary}
+    %     \begin{onecolentry}
+    %         PhD in Biomechanics with hands-on expertise in designing, prototyping, and testing bio-mechatronic systems for musculoskeletal applications. Experienced in robotic design, experimental biomechanics, and data analysis using both in vitro and in silico models. Demonstrated leadership in managing cross-functional research teams, coordinating timelines, and ensuring compliance with technical, safety, and ethical protocols. Skilled communicator who thrives in collaborative, clinician-engineer environments, and passionate about advancing joint biomechanics and medical device innovation.
+
+    %     \end{onecolentry}
+    
+    % \section{Quick Guide}
+
+    % \begin{onecolentry}
+    %     \begin{highlightsforbulletentries}
+
+
+    %     \item Each section title is arbitrary and each section contains a list of entries.
+
+    %     \item There are 7 unique entry types: \textit{BulletEntry}, \textit{TextEntry}, \textit{EducationEntry}, \textit{ExperienceEntry}, \textit{NormalEntry}, \textit{PublicationEntry}, and \textit{OneLineEntry}.
+
+    %     \item Select a section title, pick an entry type, and start writing your section!
+
+    %     \item \href{https://docs.rendercv.com/user_guide/}{Here}, you can find a comprehensive user guide for RenderCV.
+
+
+    %     \end{highlightsforbulletentries}
+    % \end{onecolentry}
+
+\vspace{0.2cm}
+
+\section{Education}
+
+\begin{twocolentry}{\textit{Jan 2022 – Aug 2025}}
+    \textbf{McGill University, Montréal, Canada} \\
+    \textit{PhD in Mechanical Engineering (Biomechanics)}
+\end{twocolentry}
+\vspace{0.1cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{Thesis:} Development of Novel Spine Biomechanical Analogue and Digital Models Towards Realizing a Robotic Spine Simulator
+        \item Published 4 first-author peer-reviewed journal articles, and presented at 25+ international conferences, secured funding from the Quebec provincial government.
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2cm}
+
+\begin{twocolentry}{\textit{Sept 2020 – Dec 2021}}
+    \textit{MS in Mechanical Engineering}
+\end{twocolentry}
+\vspace{0.1cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{Coursework:} Biofluids and Cardiovascular Mechanics, Musculoskeletal Biomechanics, Control Systems, Advanced Materials, Medical Device Design and Regulations
+        \item \textbf{GPA:} 4.0/4.0; fast-tracked into PhD
+    \end{highlights}
+\end{onecolentry}
+
+\vspace{0.2cm}
+
+\begin{twocolentry}{\textit{Sept 2016 – May 2020}}
+    \textbf{Manipal University, Manipal, India} \\
+    \textit{BTech in Mechanical Engineering (Minor in Design)}
+\end{twocolentry}
+\vspace{0.1cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item \textbf{Thesis:} Self-Healing Soft Robots: Design \& Prototyping of a Self-Healing Soft Pneumatic Gripper \\ conducted at \textit{Vrije Universiteit Brussel, Belgium.}
+        \item \textbf{GPA:} 9.17/10.0; graduated with distinction. Summer research at McGill University, Canada. Summer student robotics championship (University Rover Challenge 2018) in the USA.
+    \end{highlights}
+\end{onecolentry}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+    \section{Experience}
+
+
+
+        \begin{twocolentry}{
+        \textit{Belval, Luxembourg}    
+            
+        \textit{May 2026 – Present}}
+            \textbf{Postdoctoral Researcher}
+            
+            \textbf{\hrefWithoutArrow{https://mdsim.health/}{MDsim S.A.}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Responsible for development and clinical validation of MDsim's flagship SaMD biomechanical model "SpineSim"
+                \item Carrying out FDA and EU-MDR related biomechanical V\&V 40 credibility assessment activities of SpineSim platform
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.2 cm}
+
+
+
+
+
+
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \begin{twocolentry}{
+        \textit{Montréal, Canada}    
+            
+        \textit{Jan 2024 – Jan 2025}}
+            \textbf{Course Lecturer}
+            
+            \textbf{\hrefWithoutArrow{https://coursecatalogue.mcgill.ca/courses/mech-561/index.html}{McGill University}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Designed and delivered MECH 561: Biomechanics of Musculoskeletal Systems to \(\sim\)50 graduate and undergraduate students across 2 semesters.
+                \item Developed lesson plans, supervised group projects, and created assessments (midterm and final exam), ensuring alignment with program learning goals. Excellent feedback from students in course evals (80\%+).
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.2 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+       \begin{twocolentry}{
+        \textit{Montréal, Canada}    
+            
+        \textit{Sept 2020 – Jan 2025}}
+            \textbf{Teaching Assistant}
+            
+            \textbf{\hrefWithoutArrow{https://www.mcgill.ca/mecheng/}{McGill University}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item MECH 262 (Sensors and Measurement Lab), MECH 290 (CAD/M Lab \& Design Principles), MECH 360 (Manufacturing Lab), BIEN 505 (Medical Device Design and Regulations)
+                \item Developed tutorials, laboratory experiments, and contributed to course development. Conducted and graded examinations for 10 semesters.
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.2 cm}
+
+
+
+
+        % \begin{twocolentry}{
+        % \textit{Montréal, CA}    
+            
+        % \textit{Sept 2020 – present}}
+        %     \textbf{Teaching Assistant}
+
+        %     \textit{McGill University}
+        % \end{twocolentry}
+
+        % \vspace{0.10 cm}
+        % \begin{onecolentry}
+        %     \begin{highlights}
+        %         \item MECH 262 (Sensors Lab), 290 (Engineering Design), 360 (Manufacturing Lab), BIEN 505 (Medical Device Design and Regulations)
+        %     \end{highlights}
+        % \end{onecolentry}
+        % \vspace{0.2 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \begin{twocolentry}{
+        \textit{Montréal, Canada}    
+            
+        \textit{Aug 2024 – Aug 2025}}
+            \textbf{Biomedical engineer}
+
+            \textbf{\hrefWithoutArrow{https://www.simcare.tech/}{Simcare Tech.}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Simcare is a lab spin-off based on the technology I developed during my doctoral work. 
+                \item Developed custom spine models for industry (1) and academic (1) partners for surgical training and testing.
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.2 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+        \begin{twocolentry}{
+        \textit{Bangalore, India}    
+            
+        \textit{Jul 2020 – Sept 2024}}
+            \textbf{CTO, Mechanical Engineer}
+
+            \textbf{\hrefWithoutArrow{https://www.foodlabs.ai/}{Foodlabs Inc.}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Directed a 4-member engineering team to design and deploy an AI-enabled robotic kitchen ecosystem, launching 3 products (2 hardware, 1 software) in public beta.
+
+                \item Filed 2 patents (pending) with the Indian Patent Office, strengthening company IP portfolio.
+            \end{highlights}
+        \end{onecolentry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+     
+
+    
+    \section{Research Collaborations}
+
+        \begin{twocolentry}{\textit{Jul 2024 - present}}
+            \textbf{\hrefWithoutArrow{https://mdsim.net/}{MDsim Inc.}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+             % \item Built patient-specific spine biomechanical phantoms and analyzed its performance pre- and post- L3-L4 posteriolateral spinal fusion surgery.
+             % \item Generate validation data for SpineSim, a digital twin platform with applications in spinal surgery planning.
+
+             \item Generated validation data for the "SpineSim" digital twin platform using experimental testing of patient-specific spine phantoms, enabling adoption in surgical planning.
+
+            \item Coordinated with engineers and surgeons to deliver all milestones within a 3-month timeline. 1 journal article currently under preparation.
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+      \begin{twocolentry}{\textit{Apr 2025 - present}}
+            \textbf{\hrefWithoutArrow{https://www.mcgill.ca/orl/about-us}{Montreal General Hospital}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                
+                \item Conducted ASTM mechanical testing using the Johnson \& Johnson Viper Prime™ percutaneous pedicle screw system to evaluate how insertion depth affects pullout strength and insertion torque.
+
+                \item Led project planning, timeline management, and resource coordination to complete all experimental milestones within a 6-week window.
+
+                 \item Supervised test execution, data analysis, and reporting, ensuring technical accuracy while facilitating collaboration between multiple clinical advisors and spine surgeons.
+
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        
+    
+        
+        % \begin{twocolentry}{
+            
+        %  \textit{\href{https://www.mcgill.ca/orl/about-us}{Orthopaedic Res. Lab.}}}
+        %     \textbf{Performance of Percutaneous Pedicle Screw Fixation System}
+        % \end{twocolentry}
+
+        % \vspace{0.10 cm}
+        % \begin{onecolentry}
+        %     \begin{highlights}
+        %         \item Conducted mechanical testing using the Johnson \& Johnson Viper Prime™ percutaneous pedicle screw system to evaluate how insertion depth affects pullout strength and insertion torque.
+
+        %         \item Led project planning, timeline management, and resource coordination to complete all experimental milestones within a 6-week window.
+
+        %         \item Supervised test execution, data analysis, and reporting, ensuring technical accuracy while facilitating collaboration between multiple clinical advisors and spine surgeons.
+        %     \end{highlights}
+        % \end{onecolentry}
+        
+        % \vspace{0.2 cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \begin{twocolentry}{
+            
+         \textit{Apr 2022 - present}}
+            \textbf{\hrefWithoutArrow{https://www.lerner.ccf.org/cores/biorobotics/}{International Spine Biomechanics Consortium}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+               \item{Formed a working group of 7 top international spine biomechanics research labs (16 researchers) focused on standardizing experimental methods in spine biomechanics. 
+               \item Presented findings at top biomechanics conferences like ORS and ISTA. 2 journal articles currently under preparation.}
+            \end{highlights}
+        \end{onecolentry}
+        
+        \vspace{0.2 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        \begin{twocolentry}{\textit{Oct 2023 - Jan 2026}}
+            \textbf{\hrefWithoutArrow{https://school.wakehealth.edu/faculty/b/philip-jayson-brown}{Wake Forest University}}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+
+
+               \item Partnered with Dr. Philip Brown’s lab to conduct multi-lab, multi-specimen robotic spine testing using a KUKA KR300 robotic arm.
+
+               \item Secured funding from the Orthopaedic Research Society in 2024. Presented at 2 conferences and 1 journal article currently under preparation.
+
+               \item Funded in part by the \textbf{Orthopaedic Research Society} 2024 Travel Grant.
+               
+            \end{highlights}
+        \end{onecolentry}
+        
+     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        % \begin{twocolentry}{
+            
+        %  \textit{\href{https://www.manipal.edu/mit/why/student-projects-manipal-university/mars-rover-manipal.html}{Mars Rover Manipal}}}
+        %     \textbf{Robotic Mars Lander Prototype}
+        % \end{twocolentry}
+
+        % \vspace{0.10 cm}
+        % \begin{onecolentry}
+        %     \begin{highlights}
+        %         \item{Led a team of 4 as Research Lead (2019) on robotic exploration projects, including an autonomous vehicles and underactuated robotic arms.}
+        %         \item{Developed a Mars Rover prototype with autonomous navigation, equipment servicing, and astronaut assistance capabilities.}
+        %         \item{Ranked 1st place globally at the Indian Rover Challenge (IRC 2017) and 7th place worldwide at the University Rover Challenge (URC 2018, Utah, USA).}
+        %     \end{highlights}
+        % \end{onecolentry}
+        
+        % \vspace{0.2 cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+        % \begin{twocolentry}{
+              
+        % \textit{2002}}
+        %     \textbf{Custom Operating System}
+        % \end{twocolentry}
+
+        % \vspace{0.10 cm}
+        % \begin{onecolentry}
+        %     \begin{highlights}
+        %         \item Built a UNIX-style OS with a scheduler, file system, text editor, and calculator
+        %         \item Tools Used: C
+        %     \end{highlights}
+        % \end{onecolentry}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Appointments}
+  
+        
+            
+\begin{onecolentry}
+\textbf{Vice President of Academics, \hrefWithoutArrow{https://games-mcgill.github.io/}{GAMES} (2022–2023)} – Represented 150+ graduate students, secured permanent stipend increases, and strengthened engagement between faculty and students
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+\textbf{TA Union Representative, \hrefWithoutArrow{https://www.agsem.ca/}{AGSEM} (2023–2024)} – Elected to advocate for 50+ teaching assistants, negotiating fair workload and contract practices with university administration.
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+\textbf{Judge, \hrefWithoutArrow{https://www.mcgill.ca/engineering/students/undergraduate/research}{SURE} Program (2022–2025)} – Evaluated 15+ undergraduate research projects annually, mentoring students on research projects.
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+\textbf{3D Printing Supervisor, \hrefWithoutArrow{https://www.mcgill.ca/mbr/}{MBR Lab} (2020–2025)} – Trained 10+ researchers and established lab-wide protocols for fabrication and safety compliance.
+\end{onecolentry}
+
+\vspace{0.2 cm}
+
+\begin{onecolentry}
+\textbf{Research Team Lead, \hrefWithoutArrow{https://www.manipal.edu/mit/why/student-projects-manipal-university/mars-rover-manipal.html}{Mars Rover Manipal} (2016–2019)} – Led 4-member robotics team to win \textbf{1st place} at Indian Rover Challenge 2017 and \textbf{7th globally} at University Rover Challenge 2018.
+\end{onecolentry}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Technologies}
+
+        \begin{onecolentry}
+            \textbf{Languages:} MATLAB, LabVIEW, Python, C/C++, R, HTML
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        \begin{onecolentry}
+            \textbf{Modeling:} SOLIDWORKS, Fusion 360, Catia, AutoCAD, nTopology
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        \begin{onecolentry}
+            \textbf{Analysis:} Ansys Workbench, MSC Adams, OpenSim, AnyBody Technology
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        \begin{onecolentry}
+        \textbf{Motion Capture \& Imaging:} Creaform and Vicon optical systems, image processing in 3D Slicer
+        \end{onecolentry}
+
+
+
+        \vspace{0.2 cm}
+        \begin{onecolentry}
+            \textbf{Manufacturing:} 3D Printing - FDM \& SLA, CNC lathe and milling, Manual lathe and milling
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+        
+        \begin{onecolentry}
+        \textbf{Project Management:} Project scheduling (Trello, GanttProject), budgeting and procurement (Excel, SharePoint), vendor coordination, SOP development (Confluence, GitHub Docs), lab safety compliance (WHMIS, institutional protocols)
+        \end{onecolentry}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \section{Grants \& Awards}
+        \begin{onecolentry}
+            Total awards amounting to \textbf{346,000+ EUR} 
+            
+        \end{onecolentry}
+       \vspace{0.20 cm}
+
+
+        \begin{onecolentry}
+            \begin{highlights}
+
+
+                \item \textbf{FNR Post Doctoral Industrial Fellowship, 2025} \hfill \textit{Luxembourg National Research Fund, LU}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Title:  &  Verification and validation of patient-specific biomechanical spine models through numerical analysis and ex-vivo studies - \textit{VERITAS} \\
+                Amount: &  Maximum of 77,637 EUR/year for two years.
+                \end{tabular}
+
+
+
+                \item \textbf{FRQ-NT Doctoral Scholarship, 2024} \hfill \textit{Fonds de recherche du Québec–Nature et Technologies, CA}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Title:  &  Development and validation of a novel spine model with integrated discs, muscles, and soft tissues to complement the use of cadavers and FEA studies in the assessment of spinal biomechanics to test different hypotheses of stability and low back pain. \hrefWithoutArrow{https://doi.org/10.69777/332139}{DOI} \\
+                Amount: &  100,000 CAD awarded, 58,334 CAD utilized.
+                \end{tabular}
+
+
+                \item \textbf{GREAT Travel Award, 2024} \hfill \textit{McGill University, CA}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Conference:  &  International Society for Technology in Arthroplasty (ISTA), Nashville, USA \\
+                Amount: &  726 CAD
+                \end{tabular}
+                
+
+                \item \textbf{FRQ-NT Master's Scholarship, 2022} \hfill \textit{Fonds de recherche du Québec–Nature et Technologies, CA}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Title:  &  Development of a robotic lumbar spine model to complement existing traditional cadaveric and finite element testing methods used in low back pain research. \hrefWithoutArrow{https://doi.org/10.69777/315108}{DOI} \\
+                Amount: &  7,000 CAD
+                \end{tabular}
+
+
+                \item \textbf{McGill Engineering Doctoral Award (MEDA), 2022} \hfill \textit{McGill University, CA}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Title:  &  Development of Novel Spine Biomechanical Analogue and Digital Models Towards Realizing a Robotic Spine Simulator \\
+                Amount: &  111,000 CAD
+                \end{tabular}
+
+                \item \textbf{GREAT Travel Award, 2022} \hfill \textit{McGill University, CA}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Conference:  &  European Solid Mechanics Conference (EUROMECH), Galway, Ireland \\
+                Amount: &  726 CAD
+                \end{tabular}
+
+                \item \textbf{Graduate Excellence Awards, 2020 - 2025} \hfill \textit{McGill University, CA}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Title:  &  Development of Novel Spine Biomechanical Analogue and Digital Models Towards Realizing a Robotic Spine Simulator \\
+                Amount: &  61,346 CAD
+                \end{tabular}
+                 
+                \item \textbf{Best Paper Award, 2020} \hfill \textit{Chennai, IN}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Conference:  &  International Conference on Robotics, Intelligent Automation and Control Technologies \\
+                Amount: &  N/A
+                \end{tabular}
+
+                \item \textbf{IAESTE Semester Exchange, 2020} \hfill \textit{Vrije Universiteit Brussel, BE}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Title:  &  Self-Healing Soft Robotics: Design \& Prototyping of a Self-Healing Soft Gripper\\
+                Amount: &  5,000 EUR
+                \end{tabular}
+
+                \item \textbf{Rubin Gruber SURE Award, 2019} \hfill \textit{McGill University, CA}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Title:  &  Implementation of the control system on a robotic spine \& validation of the benchtop model \\
+                Amount: &  5,000 CAD
+                \end{tabular}
+
+                
+                \item \textbf{Manipal Scholar Award, 2016 - 2020} \hfill \textit{Manipal University, IN}  \\[0.1cm]
+                \begin{tabular}{{p{0.1\linewidth}p{0.85\linewidth}}}
+                Highlight:  &  Awarded to the top 1\% in the department\\
+                Amount: &  11,00,000 INR
+                \end{tabular}
+                
+                 
+                
+            \end{highlights}
+        \end{onecolentry}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+    
+
+
+
+
+
+
+
+\section{Service}
+   \begin{onecolentry}
+        \textbf{Journal Peer-reviewer:}
+        
+            \begin{itemize}
+                \item PLOS One, 2025
+                \item European Spine Journal, 2025
+                \item BMC Musculoskeletal Disorders, 2025
+                \item Nature - Scientific Reports, 2025
+                \item Global Spine Journal, 2025
+            \end{itemize}
+         
+        \end{onecolentry}
+       \vspace{0.2 cm}
+
+   \begin{onecolentry}
+        \textbf{Undergraduate Supervision:}
+        \begin{itemize}[label={}]
+            \item \textbf{Capstone Projects:}
+        \begin{enumerate}
+            \item Laroche C, Ahmad J, Auclair-Borduas D, Ahmed A, \textit{3D printing of ribcage phantom for robotic spine}, Sept 2024 - Apr 2025            
+            \item Ray S, Aziz A, Ali A, Eneim M, \textit{Failsafe improvements for pneumatic muscle testing}, Sept 2022 - Apr 2023
+            \item Thoma N, Barret B, Shewchuk C, Kay L, \textit{Inclusion of abdominal cavities in a benchtop spine model}, Sept 2021 – Apr 2022
+            \item Huang A, Mu Y, Chen R, He C, Xiao E, Skipper O, Jurchuk S, \textit{Design Improvements on a Robotic Spine}, Sept 2020 - Apr 2021
+        \end{enumerate}
+
+        \item \textbf{Summer Students:}
+        
+        \begin{enumerate}
+            \item de Chazal N, \textit{Pressure Control system improvements in the robotic spine benchtop}, May - Aug 2025
+            \item Zittoun N, \textit{Fabrication of biomechanical phantoms of the abdominal and thoracic cavities}, May - Aug 2024
+            
+        \end{enumerate}
+        
+        \end{itemize}
+        \end{onecolentry}
+
+
+
+
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+   \section{Publications}
+
+
+
+
+        \begin{onecolentry}
+            \textbf{Journal Articles:}
+        \end{onecolentry}
+\begin{enumerate}
+
+    \item{
+    Wahbeh, J., Loss, J.G., Coltoff, E.C., \textbf{Dukkipati, S.}, Chastain, K., Pelletier, M., Wang, T., Brown P.J., Driscoll M., Sangiorgio S.N., Ebramzadeh E., Meyers K., Walsh W., Cornwall B., Kelly B., Colbrunn R., (2026) A Multi-Laboratory Study Towards Standardizing Spine Testing: Evaluating Reproducibility and Temporal Changes in Lumbar Spine Surrogates. \textit{ASME Journal of Biomechanical Engineering} \hrefWithoutArrow{https://doi.org/10.1115/1.4072253}{{DOI}}}
+
+      \item{
+      Coltoff, E.C.\textbf{*}, \textbf{Dukkipati, S.*}, Brown P.J., Driscoll, M., (2026) An Inter-laboratory Study of the Multi-dimensional Behaviors of Analogue Lumbar Spine Surrogates: Towards Standardization in Spine Testing. \textit{Frontiers in Bioengineering and Biotechnology.} \hrefWithoutArrow{https://doi.org/10.3389/fbioe.2026.1769107}{ {DOI}} \hrefWithoutArrow{https://github.com/siril-teja/McGill-Wake.git}{ {Data}} \\
+      \textbf{*}equal contribution and co-first authorship.}
+  
+      \item{
+      \textbf{Dukkipati, S.}, Driscoll, M., (2025) An Integrated Rigid-Flexible Body Dynamic Approach to Computationally Efficient Musculoskeletal Modeling and Muscle Recruitment Simulation of the Spine and Torso. \textit{IEEE Transactions on Biomedical Engineering}  \hrefWithoutArrow{https://doi.org/10.1109/TBME.2025.3617301}{ {DOI}} \hrefWithoutArrow{https://github.com/siril-teja/ROMmodel-io.git}{ {Code}}} 
+
+      \item{
+      \textbf{Dukkipati, S.}, Driscoll, M., (2025) Evaluation of a Fast-Solving Rigid Body Spine Model Inclusive of Intra-Abdominal Pressure. \textit{IEEE Transactions on Biomedical Engineering}. \hrefWithoutArrow{https://doi.org/10.1109/TBME.2025.3561692}{{DOI}} \hrefWithoutArrow{https://github.com/siril-teja/RBDmodel-io.git}{{Code}}} 
+
+    \item{
+    \textbf{Dukkipati, S.}, Driscoll, M., (2025) Development and Biomechanical Evaluation of a 3D Printed Analogue of the Human Lumbar Spine. \textit{3D Printing in Medicine} 11, 3. \hrefWithoutArrow{https://doi.org/10.1186/s41205-025-00249-y}{{DOI}}} 
+
+     \item{
+     \textbf{Dukkipati, S.}, Driscoll, M., (2024) Design Improvements and Validation of a Novel Fully 3D Printed Analogue Lumbar Spine Motion Segment. \textit{Journal of Bionic Engineering} 21, 1388–1396. \hrefWithoutArrow{https://doi.org/10.1007/s42235-024-00512-8}{{DOI}}} 
+
+
+
+\end{enumerate} 
+
+
+
+\begin{onecolentry}
+            \textbf{Manuscripts in progress:}
+        \end{onecolentry}
+\begin{enumerate}
+  
+    
+
+    \item{Cardahi, F., \textbf{Dukkipati, S.}, Al-Naseem A., Jarzem, P., 
+        Reindl, R., Santaguida, C., Wu, J., Ouellet, J., Driscoll, M., Aoude, A., (2026) Effects of Percutaneous Pedicle Screw Placement and Suboptimal Insertion Depth on Insertion Torque and Pullout Strength: A Biomechanical Analysis - Submitted to \textit{Nature - Scientific Reports}} \hrefWithoutArrow{https://doi.org/10.21203/rs.3.rs-8777517/v1}{Preprint}
+
+    \item{
+        Coltoff, E.C., \textbf{Dukkipati, S.}, Wahbeh, J., Loss, J.G., Chastain, K., Pelletier, M., Wang, T., Brown P.J., Driscoll M., Sangiorgio S.N., Ebramzadeh E., Meyers K., Walsh W., Cornwall B., Kelly B., Colbrunn R., (2026) A Multi-Laboratory Study Towards Standardizing Spine Testing: Evaluating the Impact of Protocol and Testing Environment on Spine Biomechanics }
+
+\end{enumerate} 
+
+
+
+
+        \begin{onecolentry}
+            \textbf{Book Chapters:}
+        \end{onecolentry}
+
+\begin{enumerate}
+    \item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2024) 3D Printable Analogue Spine Models: Towards Cost and Time Effective
+    Spinal Biomechanical Research, \textit{Special Topics in Structural Dynamics \& Experimental Techniques}, Vol. 5: Proceedings of the 42nd IMAC, A Conference and Exposition on Structural Dynamics 2024 (1st ed.). River Publishers. \hrefWithoutArrow{https://doi.org/10.1007/978-3-031-68901-7_3}{ {Chapter 3}}}}
+
+
+    
+    \item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2024) Effect of Ligaments on Lumbar Spinal Stiffness: A Systematic Investigation Using Novel 3D-Printed Analogue Spine Models, \textit{Special Topics in Structural Dynamics \& Experimental Techniques}, Vol. 5: Proceedings of the 42nd IMAC, A Conference and Exposition on Structural Dynamics 2024 (1st ed.). River Publishers. \hrefWithoutArrow{https://doi.org/10.1007/978-3-031-68901-7_12}{ {Chapter 12}}}}
+
+\end{enumerate} 
+
+
+        \begin{onecolentry}
+            \textbf{Peer-reviewed Conference Talks:}
+        \end{onecolentry}
+
+\begin{enumerate}
+
+    \item{
+    { Tarquini, M., Rasouligandomani, M., \textbf{Dukkipati, S.}, Kacar, D., Assaker, R., Adam, L., (2026) Verification and Validation of MDSIM's Atlas Spine Model: Application to a Patient-Specific Deformity Case, 9th International Conference on the Virtual Physiological Human (VPH), Milan, Italy.
+
+    \item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2025) Exploration of Influence of the Thoracolumbar Fascia and the Abdominal Cavity on Spine Stiffness and Load Sharing During Flexion Movements, Fascia Research Congress, New Orleans, Lousiana, USA. \hrefWithoutArrow{https://www.researchgate.net/publication/396205893_Exploration_of_Influence_of_the_Thoracolumbar_Fascia_and_the_Abdominal_Cavity_on_Spine_Stiffness_and_Load_Sharing_During_Flexion_Movements}{Abstract}}
+
+    \item{
+    { Coltoff, E.C., \textbf{Dukkipati, S.}, Brown, P.H., Driscoll, M.,  (2025) Novel Spinal Modeling \& Testing Methods Research Exchange: ORS Spine Section Travel Grant 2024 (Coltoff), Orthopaedic Research Society (ORS) 2025 Annual Meeting, Phoenix, Arizona, USA.}}
+
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2024) Novel Benchtop and In silico Alternatives to Traditional Spine Biomechanics Research Methodologies, 10th International Conference on Mechanics and Materials in Design (M2D 2024), Nagoya, Japan. \hrefWithoutArrow{https://www.researchgate.net/publication/386050309_Novel_benchtop_and_in-silico_alternatives_to_traditional_spine_biomechanics_research_methodologies\#fullTextFileContent}{{Abstract}}}}}
+
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2024) A Systematic Benchtop Construction and Deconstruction Study of Spinal Ligaments Using Novel 3D Printable Analogue Spine Models, International Society for Technology in Arthroplasty (ISTA), Nashville, USA. \hrefWithoutArrow{https://www.istaonline.org/wp-content/uploads/2024/10/ISTA-Online-Abstracts.pdf\#page=336}{ {Abstract}}}}}
+
+
+    {\item{
+    { Wahbeh, J., Loss, J.G., Coltoff, E.C., \textbf{Dukkipati, S.}, Chastain, K., Pelletier, M., Wang, T., Brown P.J., Driscoll M., Sangiorgio S.N., Ebramzadeh E., Meyers K., Walsh W., Cornwall B., Kelly B., Colbrunn R., (2024) Composite Lumbar Spine Surrogate Biomechanical Variability During Multi-Laboratory Collaborative Testing, International Society for Technology in Arthroplasty (ISTA), Nashville, USA. \hrefWithoutArrow{https://www.istaonline.org/wp-content/uploads/2024/10/ISTA-Online-Abstracts.pdf\#page=1050}{ {Abstract}}}}}
+
+
+    {\item{
+    { Wahbeh, J., Loss, J.G., Coltoff, E.C., \textbf{Dukkipati, S.}, Chastain, K., Pelletier, M., Wang, T., Brown P.J., Driscoll M., Sangiorgio S.N., Ebramzadeh E., Meyers K., Walsh W., Cornwall B., Kelly B., Colbrunn R., (2024) Temporal Variation in Artificial Composite Spinal Surrogates Through Inter-Laboratory Spine Biomechanics Testing, International Society for Technology in Arthroplasty (ISTA), Tennessee, USA. \hrefWithoutArrow{https://www.istaonline.org/wp-content/uploads/2024/10/ISTA-Online-Abstracts.pdf\#page=1053}{ {Abstract}}}}}
+
+
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2024) Quantifying the Effect of Ligament Tears on Lumbar Spine Stiffness: A Systematic Construction and Deconstruction Study Using Novel 3D Printable Analogue Spine Models, EUROSPINE Annual Meeting, Vienna, Austria. \hrefWithoutArrow{https://doi.org/10.1016/j.bas.2024.103287}{ {Abstract}}}}}
+
+
+    
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2022) Viscoelastic Properties of a 3D Printed Analogue of Thoracolumbar Fascia, Fascia Research Congress, Montreal, Canada. \hrefWithoutArrow{https://www.researchgate.net/publication/363581651_Viscoelastic_Properties_of_a_3D_Printed_Analogue_of_Thoracolumbar_Fascia\#fullTextFileContent}{ {Abstract}}}}}
+
+
+     
+     {\item{
+     { \textbf{Dukkipati, S.}, Driscoll, M., (2022) Design and Validation of 3D Printed Analogous Lumbar Model for Use in a Robotic Benchtop Spine Model, European Solid Mechanics Conference, Galway, Ireland. \hrefWithoutArrow{https://www.researchgate.net/publication/362902312_Design_and_validation_of_3D_printed_analogous_lumbar_model_for_use_in_a_robotic_benchtop_spine_model\#fullTextFileContent}{ {Abstract}} }}}
+
+\end{enumerate}
+
+
+
+
+        \begin{onecolentry}
+            \textbf{Peer-reviewed Conference Posters:}
+        \end{onecolentry}
+    
+\begin{enumerate}
+    
+
+     \item{
+     \textbf{Dukkipati, S.}, Driscoll, M., (2025) Evaluation of an Intra-abdominal Pressure Inclusive Rigid Body Dynamic Torso Model for Fast-solving High-fidelity Simulations, Global Spine Congress 2025, Rio de Janeiro. \hrefWithoutArrow{https://www.researchgate.net/publication/396205922_Evaluation_of_an_intra-abdominal_pressure_inclusive_rigid_body_dynamic_torso_model_for_fast-solving_high-fidelity_simulations}{Poster}}
+    
+    
+    \item
+    {\textbf{Dukkipati, S.}, Driscoll, M., (2025) Validation of a Fast-Solving Rigid-Flexible Body Dynamic Model of the Spine for Use in Muscle Recruitment Optimization Problems, 25rd Annual Scientific Conference of The Canadian Spine Society, Charlevoix, Quebec, Canada. \hrefWithoutArrow{https://doi.org/10.13140/RG.2.2.35318.51523}{ {Poster}}
+    }
+
+
+    \item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2025) Development of a Novel Rigid-Flexible Body Dynamic Model as a High-Fidelity Parametric Biomechanical Digital Twin of the Human Torso, 25rd Annual Scientific Conference of The Canadian Spine Society, Charlevoix, Quebec, Canada.
+    \hrefWithoutArrow{https://doi.org/10.13140/RG.2.2.21896.74243}{ {Poster}}
+    }}
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2025) Development And Validation Of A High Fidelity Rigid Body Spine Model Inclusive Of Intra-abdominal Pressure, Orthopaedic Research Society (ORS) 2025 Annual Meeting, Phoenix, Arizona, USA. \hrefWithoutArrow{https://www.ors.org/wp-content/uploads/AM25/1587.pdf}{ {Abstract}}   }}}
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2025) Biomechanical Evaluation Of Fully 3D Printable L1-S1 And L2-L5 Spine Surrogates In Pure Moment Loading, Orthopaedic Research Society (ORS) 2025 Annual Meeting, Phoenix, Arizona, USA. \hrefWithoutArrow{https://www.ors.org/wp-content/uploads/AM25/704.pdf}{ {Abstract}}       }}}
+
+    {\item{
+    { Coltoff, E.C., Loss, J.G., \textbf{Dukkipati, S.}, Driscoll, M., et al. (2024) Biomechanical Variability in Composite Lumbar Spine Surrogates During Multi-Laboratory Collaborative Testing, Summer Biomechanics, Bioengineering, and Biotransport Conference (SB3C), Lake Geneva, Wisconsin, USA. \hrefWithoutArrow{https://sb3c.org/wp-content/uploads/2024/SB3C2024_Proceedings_Book.pdf\#page=812}{ {Abstract}}}}}
+
+    {\item{
+    { Coltoff, E.C., Loss, J.G., \textbf{Dukkipati, S.}, Driscoll, M., et al. (2024) Temporal Variability in Composite Lumbar Spine Surrogates During Multi-Laboratory Collaborative Testing, Summer Biomechanics, Bioengineering, and Biotransport Conference (SB3C), Lake Geneva, Wisconsin, USA. \hrefWithoutArrow{https://sb3c.org/wp-content/uploads/2024/SB3C2024_Proceedings_Book.pdf\#page=832}{ {Abstract}}}}}
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2024) Ligament Damage Models in the Lumbar Spine: Modeling Using a Novel 3D printable Analogue Model, 24rd Annual Scientific Conference of The Canadian Spine Society, Whistler, British Columbia, Canada. \hrefWithoutArrow{http://dx.doi.org/10.13140/RG.2.2.18960.72968}{ {Poster}}}}}
+
+    {\item{
+    { Coltoff, E.C., Loss, J.G., \textbf{Dukkipati, S.}, Driscoll, M., et. al. (2024) Composite Lumbar Spine Surrogate Biomechanical Variability During Multi-Laboratory Collaborative Testing, Orthopaedic Research Society (ORS) 2024 Annual Meeting, Long Beach, California, USA. \hrefWithoutArrow{https://www.ors.org/wp-content/uploads/AM24/2230.pdf}{ {Abstract}}}}}
+
+    {\item{
+    { Coltoff, E.C., Loss, J.G., \textbf{Dukkipati, S.}, Driscoll, M., et. al. (2024) Temporal Variation in Artificial Composite Spinal Surrogates through Inter-laboratory Spine Biomechanics Testing,  Orthopaedic Research Society (ORS) 2024 Annual Meeting, Long Beach, California, USA. \hrefWithoutArrow{https://www.ors.org/wp-content/uploads/AM24/2228.pdf}{ {Abstract}}}}}
+
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2023) Rotational Stiffness in a Fully 3D Printed Biomechanical Analogue of the Lumbar Spine, Global Spine Congress 2023, Prague, Czech Republic. \hrefWithoutArrow{http://dx.doi.org/10.13140/RG.2.2.16024.71681}{ {Poster}}}}}
+
+    
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2023) Estimating the Effect of Ligaments on Spinal Stiffness by Systematic Construction of an L1-S1 Analogue Spine Model, Global Spine Congress 2023, Prague, Czech Republic. \hrefWithoutArrow{http://dx.doi.org/10.13140/RG.2.2.32801.93280}{ {Poster}}}}}    
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2023) On the Effect of Thoracolumbar Fascia on Lumbar Spine Stiffness Under Loading in an Analogue Spine Setup, Global Spine Congress 2023, Prague, Czech Republic. \hrefWithoutArrow{http://dx.doi.org/10.13140/RG.2.2.21057.88168}{ {Poster}}}}}
+
+    {\item{
+    { \textbf{Dukkipati, S.}, Driscoll, M., (2023) Pure Bending Stiffness in a Fully 3D Printed L1-S1 Lumbar Spine Model, 4th International workshop on spinal loading and deformation, Berlin, Germany. \hrefWithoutArrow{http://dx.doi.org/10.13140/RG.2.2.17702.43840}{ {Poster}}}}}
+
+\end{enumerate}
+
+  \begin{onecolentry}
+            \textbf{Thesis:}
+        \end{onecolentry}
+\begin{enumerate}
+    \item 
+    \textbf{Dukkipati S.}, (2025) Development of Novel Spine Biomechanical Analogue and Digital Models Towards Realizing a Robotic Spine Simulator, Doctoral Thesis, McGill University, Canada. \hrefWithoutArrow{https://escholarship.mcgill.ca/concern/theses/z029pb55h}{Thesis}
+    
+    \item
+    \textbf{Dukkipati S.}, (2020) Self-Healing Soft Robots: Design \& Prototyping of a Self-Healing Soft Pneumatic Gripper, Bachelor's thesis, Manipal Institute of Technology, India and Vrije Universiteit Brussel, Belgium. \hrefWithoutArrow{https://mcgill-my.sharepoint.com/:b:/g/personal/siril_dukkipati_mail_mcgill_ca/EaEAs_Rdp-dJnEXGQdOis0MBDuIVQevMgDzrX_l7gQvMSQ?e=YLPrZh}{Thesis}
+
+ \end{enumerate}
+
+\end{document}

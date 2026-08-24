@@ -1,0 +1,22 @@
+title: Fast-Solving Rigid Body Spine Model with Intra-Abdominal Pressure
+category: building-computational-models
+summary: >
+  A high-fidelity MATLAB rigid-body model of the lumbar spine inclusive of intra-abdominal pressure — 15 DOF, 279 force elements, ~1.4 s solve times — validated against in vivo data.
+description: >
+  Musculoskeletal spine models either neglect intra-abdominal pressure (IAP) or are too computationally expensive for iterative optimization. This project developed a fast-solving rigid-body dynamics model of the lumbar spine — pelvis to ribcage, geometry adapted from MRI scans — with nonlinear disc joints, tension-only ligaments, and two alternative IAP formulations. Segmental stiffness profiles were validated against in vivo literature, and the model's seconds-fast runtime opens the door to muscle recruitment optimization and machine learning applications.
+themes:
+  - rigid body dynamics
+  - intra-abdominal pressure
+  - MATLAB
+  - muscle recruitment
+hero: 3Manu2024.png
+images:
+  - ORS2025b.png
+related_publications:
+  - TBME2025_RBD
+  - GSC2025
+  - ORS2025b
+external_links:
+  - label: Code
+    url: https://github.com/siril-teja/RBDmodel-io
+

@@ -1,0 +1,188 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+import PubEntry from '../../components/PubEntry.astro';
+
+const publications = await getCollection('publications');
+
+const GROUPS: { id: string; label: string; types: string[]; variant: 'full' | 'compact' }[] = [
+  { id: 'journal', label: 'Journal Articles', types: ['journal'], variant: 'full' },
+  { id: 'book-chapter', label: 'Book Chapters', types: ['book-chapter'], variant: 'full' },
+  { id: 'preprint', label: 'Preprints & Manuscripts', types: ['preprint', 'manuscript'], variant: 'compact' },
+  { id: 'thesis', label: 'Theses', types: ['thesis-phd', 'thesis-bachelor'], variant: 'full' },
+  { id: 'conference-talk', label: 'Conference Talks', types: ['conference-talk'], variant: 'compact' },
+  { id: 'conference-poster', label: 'Conference Posters', types: ['conference-poster'], variant: 'compact' },
+];
+
+const FILTERS = [
+  { id: 'all', label: 'All' },
+  { id: 'journal', label: 'Journal Articles' },
+  { id: 'book-chapter', label: 'Book Chapters' },
+  { id: 'conference', label: 'Conferences' },
+  { id: 'thesis', label: 'Theses' },
+  { id: 'preprint', label: 'Preprints' },
+];
+
+const groups = GROUPS.map((g) => ({
+  ...g,
+  entries: publications
+    .filter((p) => g.types.includes(p.data.type))
+    .sort((a, b) => b.data.year - a.data.year),
+})).filter((g) => g.entries.length > 0);
+
+// first figure-bearing entry sits above the fold and should load eagerly
+const firstFigureEntry = groups.find((g) => g.variant === 'full')?.entries[0]?.id;
+
+const total = publications.length;
+---
+
+<BaseLayout
+  title="Siril - Publications"
+  description="Complete academic publication archive of Siril Teja Dukkipati: journal articles, book chapters, conference talks and posters, theses, and preprints."
+>
+  <section class="page-head">
+    <div class="container">
+      <SectionHeader
+        num="04"
+        label="Research Archive"
+        heading="Publications."
+        lede={`Complete publication record — ${total} entries. Bibliographic details follow the current CV.`}
+      />
+    </div>
+  </section>
+
+  <section class="container archive" aria-label="Publication list">
+    <noscript>
+      <p class="meta noscript-note">Showing all publications. Filtering requires JavaScript.</p>
+    </noscript>
+
+    <div class="filter-bar" role="group" aria-label="Filter publications">
+      {
+        FILTERS.map((f, i) => (
+          <button
+            class="filter-btn"
+            data-filter={f.id}
+            aria-pressed={i === 0 ? 'true' : 'false'}
+          >
+            {f.label}
+          </button>
+        ))
+      }
+    </div>
+
+    {
+      groups.map((g) => (
+        <section class="pub-group" data-group={g.id} aria-label={g.label}>
+          <h2 class="group-heading" data-reveal>
+            <span>{g.label}</span>
+            <span class="meta group-count">{g.entries.length}</span>
+          </h2>
+          <div>
+            {g.entries.map((pub) => (
+              <div class="pub-wrap" data-type={g.id === 'preprint' ? 'preprint' : g.id.startsWith('conference') ? 'conference' : g.id}>
+                <PubEntry pub={pub} variant={g.variant} figureLoading={pub.id === firstFigureEntry ? 'eager' : 'lazy'} />
+              </div>
+            ))}
+          </div>
+        </section>
+      ))
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head {
+    padding-block: clamp(3.5rem, 8vh, 6rem) 0;
+  }
+
+  .noscript-note {
+    margin-bottom: 1.5rem;
+    color: var(--text-2);
+  }
+
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+  }
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: var(--size-meta);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-2);
+    border: 1px solid var(--border-strong);
+    border-radius: 99px;
+    padding: 0.55em 1.2em;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+  .filter-btn:hover {
+    color: var(--text);
+    border-color: var(--text-2);
+  }
+  .filter-btn[aria-pressed='true'] {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  .pub-group {
+    margin-bottom: 4rem;
+  }
+  .group-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .group-count {
+    color: var(--accent);
+  }
+  .pub-group .pub-wrap:first-child :global(.pub) {
+    border-top: none;
+  }
+
+  .pub-group[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const groups = document.querySelectorAll<HTMLElement>('.pub-group');
+  const wraps = document.querySelectorAll<HTMLElement>('.pub-wrap');
+
+  const applyFilter = (filter: string) => {
+    filterBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === filter)));
+    groups.forEach((g) => {
+      const gid = g.dataset.group ?? '';
+      const visible =
+        filter === 'all' ||
+        gid === filter ||
+        (filter === 'conference' && gid.startsWith('conference'));
+      g.hidden = !visible;
+    });
+    wraps.forEach((w) => {
+      if (filter === 'all') {
+        w.hidden = false;
+        return;
+      }
+      const t = w.dataset.type ?? '';
+      w.hidden = !(
+        t === filter ||
+        (filter === 'conference' && t.startsWith('conference')) ||
+        (filter === 'preprint' && t === 'preprint')
+      );
+    });
+  };
+
+  filterBtns.forEach((b) => b.addEventListener('click', () => applyFilter(b.dataset.filter ?? 'all')));
+</script>
