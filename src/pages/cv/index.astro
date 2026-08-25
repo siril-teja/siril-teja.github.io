@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionHeader from '../../components/SectionHeader.astro';
+---
+
+<BaseLayout
+  title="Siril - CV"
+  description="Curriculum vitae of Siril Teja Dukkipati — view online or download the PDF."
+>
+  <section class="page-head">
+    <div class="container">
+      <SectionHeader
+        num="—"
+        label="Curriculum Vitae"
+        heading="The complete factual record."
+        lede="View it here, or download the PDF. The full publication record lives in the research archive."
+      />
+      <div class="cv-actions">
+        <a class="btn btn--solid" href="/cv/Siril_TD_Resume_V7.pdf" target="_blank" rel="noopener noreferrer">Download PDF</a>
+        <a class="arrow-link" href="/publications/">Research archive</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" aria-label="CV document">
+    <div class="cv-viewer">
+      <object data="/cv/Siril_TD_Resume_V7.pdf" type="application/pdf" aria-label="Curriculum vitae, PDF document">
+        <iframe src="/cv/Siril_TD_Resume_V7.pdf" title="Curriculum vitae, PDF document">
+          <p>
+            Your browser cannot display PDFs inline.
+            <a href="/cv/Siril_TD_Resume_V7.pdf" target="_blank" rel="noopener noreferrer">Open the PDF directly</a>.
+          </p>
+        </iframe>
+      </object>
+    </div>
+    <p class="meta cv-hint">If the viewer doesn't load on your device, use the download button above.</p>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head {
+    padding-block: clamp(3.5rem, 8vh, 6rem) clamp(1.5rem, 3vh, 2.5rem);
+  }
+  .cv-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.75rem;
+  }
+
+  .cv-viewer {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    padding: clamp(0.5rem, 1vw, 1rem);
+  }
+  .cv-viewer object,
+  .cv-viewer iframe {
+    display: block;
+    width: 100%;
+    height: clamp(30rem, 85vh, 60rem);
+    border: none;
+  }
+
+  .cv-hint {
+    margin-top: 0.9rem;
+    color: var(--muted);
+  }
+</style>
