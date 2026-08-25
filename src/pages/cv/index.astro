@@ -9,12 +9,7 @@ import SectionHeader from '../../components/SectionHeader.astro';
 >
   <section class="page-head">
     <div class="container">
-      <SectionHeader
-        num="—"
-        label="Curriculum Vitae"
-        heading="The complete factual record."
-        lede="View it here, or download the PDF. The full publication record lives in the research archive."
-      />
+    <SectionHeader num="—" label="Curriculum Vitae" />
       <div class="cv-actions">
         <a class="btn btn--solid" href="/cv/Siril_TD_Resume_V7.pdf" target="_blank" rel="noopener noreferrer">Download PDF</a>
         <a class="arrow-link" href="/publications/">Research archive</a>
@@ -57,7 +52,9 @@ import SectionHeader from '../../components/SectionHeader.astro';
   .cv-viewer iframe {
     display: block;
     width: 100%;
-    height: clamp(30rem, 85vh, 60rem);
+    height: auto;
+    aspect-ratio: 210 / 297;
+    min-height: 40rem;
     border: none;
   }
 
